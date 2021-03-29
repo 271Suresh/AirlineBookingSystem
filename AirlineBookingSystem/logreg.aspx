@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <style type="text/css">
     {
         margin: 0;
@@ -45,7 +47,7 @@
     .nav-bar h1{
         margin: 10px 90px;
         height: 90px;
-        font-family:Calibri;
+        font-family: 'Montserrat', sans-serif;
     }
     body{
         align-items: center;
