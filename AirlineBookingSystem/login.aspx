@@ -71,6 +71,7 @@
     </style>
   </head>
   <body>
+      
     <div class="middle-block">
       <div class="image">
         <img src="images/login.png" height="505px" width="" alt="" />
