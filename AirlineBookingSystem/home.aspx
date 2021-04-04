@@ -243,10 +243,10 @@
   <body>
     <div class="fl">
       <div class="nav-bar">
-        <h1>WELCOME TO FlyAIR</h1>
+        <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
         <ul class="menu">
           <li>
-            <a href=""> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+            <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
           </li>
           <li><a href="login.aspx">LOGIN</a></li>
           <li><a href="register.aspx"> REGISTER</a></li>

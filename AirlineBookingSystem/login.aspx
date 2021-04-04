@@ -107,6 +107,7 @@
               />
               <button type="submit">Login</button>
               <a href="register.aspx" style="background-color:#0277BD;">Register</a>
+              <a href="register.aspx" style="background-color:#0277BD;">Forgot Password</a>
             </div>
           </form>
         </div>
