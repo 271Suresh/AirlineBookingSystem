@@ -19,6 +19,7 @@
         height: 100vh;
         padding: 4rem;
         background-image: url("images/plane2.jpg");
+        display: flex;
       }
 
       input[type="text"],
@@ -30,31 +31,43 @@
         border-radius: 12px;
       }
 
-      button {
+      button,
+      a {
         background-color: rgb(233, 55, 55);
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         cursor: pointer;
-
+        text-decoration: none;
         border-radius: 12px;
+        text-align: center;
       }
 
-      button:hover {
+      button:hover,
+      a:hover {
         opacity: 0.8;
       }
-
-      .middle-block {
-        background: pink;
+      .outer-block {
         display: flex;
-        align-items: center;
-        height: 80vh;
-        background: rgba(78, 176, 247, 0.25);
+        flex-direction: column;
+        background: rgba(79, 195, 247, 0.25);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
         border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 75%;
+        height: 80vh;
+        align-items: center;
+        align-self: center;
+        margin: auto;
+        padding: 5rem;
+      }
+
+      .middle-block {
+        display: flex;
+        align-items: center;
       }
       .container {
         display: flex;
@@ -71,29 +84,32 @@
     </style>
   </head>
   <body>
-      
-    <div class="middle-block">
-      <div class="image">
-        <img src="images/login.png" height="505px" width="" alt="" />
-      </div>
-      <div class="form-container">
-        <form action="register.aspx" method="post">
-          <div class="container">
-            <input
-              type="text"
-              placeholder="Enter Username"
-              name="uname"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Enter Password"
-              name="psw"
-              required
-            />
-            <button type="submit">Login</button>
-          </div>
-        </form>
+    <div class="outer-block">
+      <h1 style="color: white">WELCOME TO FlyAIR Login</h1>
+      <div class="middle-block">
+        <div class="image">
+          <img src="images/login.png" height="505px" width="" alt="" />
+        </div>
+        <div class="form-container">
+          <form action="register.aspx" method="post">
+            <div class="container">
+              <input
+                type="text"
+                placeholder="Enter Username"
+                name="uname"
+                required
+              />
+              <input
+                type="password"
+                placeholder="Enter Password"
+                name="psw"
+                required
+              />
+              <button type="submit">Login</button>
+              <a href="register.aspx" style="background-color:#0277BD;">Register</a>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </body>
