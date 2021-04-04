@@ -3,14 +3,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head runat="server">
-    <title></title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <title>Home Page</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -233,23 +230,6 @@
         );
       }
     </style>
-    <script>
-        var indexValue = 0;
-        function slideShow() {
-            setTimeout(slideShow, 2500);
-            var x;
-            const img = document.querySelectorAll("img");
-            for (x = 0; x < img.length; x++) {
-                img[x].style.display = "none";
-            }
-            indexValue++;
-            if (indexValue > img.length) {
-                indexValue = 1;
-            }
-            img[indexValue - 1].style.display = "block";
-        }
-        slideShow();
-    </script>
   </head>
   <body>
     <div class="fl">
