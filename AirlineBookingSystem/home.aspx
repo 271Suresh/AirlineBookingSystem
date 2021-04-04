@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="logreg.aspx.cs" Inherits="AirlineBookingSystem.logreg" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="AirlineBookingSystem.logreg" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -71,26 +71,31 @@
         height: 91vh;
         background-image: url("b.jpg");
         background-repeat: no-repeat;
-
         background-position: center;
         display: flex;
         flex-direction: column;
+        padding: 6rem;
       }
 
       .content {
-        margin-top: 5.5rem;
-        width: 85%;
-        height: 15rem;
+        margin-top: 3rem;
+        padding: 3rem;
         background: rgba(90, 142, 255, 0.55);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(7.5px);
         -webkit-backdrop-filter: blur(7.5px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
-        align-self: center;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+      .input {
+        display: flex;
+      }
+      .buttons {
+        display: flex;
       }
       .btn-grad {
         background-image: linear-gradient(
@@ -135,7 +140,7 @@
       .labeltext {
         display: flex;
         flex-direction: column;
-        margin: 3rem;
+        margin: 2rem;
       }
     </style>
     <script>
@@ -167,28 +172,43 @@
       </div>
 
       <div class="backimage">
-        <div class="content">
-          <div class="labeltext">
-            <label for="source">FROM</label>
-            <input class="textbox" type="text" name="source" id="" />
-          </div>
+        <form action="#" method="get">
+          <div class="content">
+            <div class="input">
+              <div class="labeltext">
+                <label for="source">FROM</label>
+                <input class="textbox" type="text" name="source" id="" />
+              </div>
 
-          <div class="labeltext">
-            <label for="destination">TO</label>
-            <input class="textbox" type="text" name="destination" id="" />
-          </div>
+              <div class="labeltext">
+                <label for="destination">TO</label>
+                <input class="textbox" type="text" name="destination" id="" />
+              </div>
 
-          <div class="labeltext">
-            <label for="date">departure date</label>
-            <input class="textbox" type="date" name="date" id="" />
+              <div class="labeltext">
+                <label for="date">departure date</label>
+                <input class="textbox" type="date" name="date" id="" />
+              </div>
+            </div>
+
+            <div class="buttons">
+              <div class="labeltext">
+                <button class="btn-grad">
+                  Search Flights
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <div class="labeltext">
+                <button class="btn-grad">
+                  Get Cheapest Flight
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="labeltext">
-            <button class="btn-grad">
-              Search Flights
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
+        </form>
+        <div class="content"></div>
       </div>
     </div>
   </body>

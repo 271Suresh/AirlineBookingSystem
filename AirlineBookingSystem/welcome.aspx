@@ -5,10 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+      <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <style>
+          * {
+       
+        font-family: "Poppins", sans-serif;
+       
+      }
         body{
           background: #3da7e0;
         }
+            
         .container{
 
           text-align: center;
@@ -56,7 +66,7 @@
 
     </style>
     <script>
-          setTimeout('window.location="logreg.aspx";', 5000);
+          setTimeout('window.location="home.aspx";', 5000);
     </script>
 </head>
 
