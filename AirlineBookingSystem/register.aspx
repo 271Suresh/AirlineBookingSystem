@@ -37,7 +37,7 @@
         border-radius: 12px;
       }
 
-      button {
+      .button {
         background-color: #ff7043;
         color: white;
         padding: 14px 20px;
@@ -48,7 +48,7 @@
         border-radius: 12px;
       }
 
-      button:hover {
+      .button:hover {
         opacity: 0.8;
       }
       .imgcontainer {
@@ -82,6 +82,29 @@
         align-self: center;
       }
     </style>
+    <script>
+	    //function name(){
+     //       var x = /^\d{10}$/;
+     //       var no = document.forms[0].pass.value
+     //       if (!no.match(x))
+		   // {
+			  //  alert('invalid Name');
+			  //  return false;
+		   // }
+		   // return true;
+     //   }
+        function passCpass() {
+            var pwd = document.forms[1].pass.value
+            var cpwd = document.forms[1].cpass.value
+            if (pwd == cpwd) {
+                return true;
+            }
+            else {
+                alert("Password does not match");
+                return false;
+            }
+        }
+    </script>
   </head>
   <body>
     <div align="center" class="outer-container">
@@ -92,13 +115,13 @@
           id="registration"
           runat="server"
           method="post"
-          action="login.aspx"
+          onsubmit="return passCpass()"
         >
           <div class="container">
-            <input type="text" name="fname" placeholder="First Name" />
+            <input type="text" name="fname" placeholder="First Name" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="lname" placeholder="Last Name" /> <br />
-            <select name="Gender" id="gender">
+            <input type="text" name="lname" placeholder="Last Name" required/> <br />
+            <select name="gender" id="gender" required>
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -107,22 +130,23 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input
               type="Date"
-              name="date"
+              name="dob"
               placeholder="DOB"
               style="width: 165px"
+               required
             />
             <br />
-            <input type="text" name="city" placeholder="City" />
+            <input type="text" name="city" placeholder="City" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="state" placeholder="State" /> <br />
-            <input type="text" name="email" placeholder="Email" />
+            <input type="text" name="state" placeholder="State" required/> <br />
+            <input type="text" name="email" placeholder="Email" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="phoneno" placeholder="Mobile No" /> <br />
-            <input type="text" name="pass" placeholder="Password" />
+            <input type="text" onblur="name(this.value);" name="phoneno" placeholder="Mobile No" required/> <br />
+            <input type="password" name="pass" placeholder="Password" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="cpass" placeholder="Confirm Password" />
+            <input type="password" name="cpass" placeholder="Confirm Password" required/>
             <br />
-            <button type="submit">Register</button><br />
+             <asp:Button class="button" Text="Register" runat="server" id="button" OnClick="button_Click"/>
             <br />
           </div>
           <br />
