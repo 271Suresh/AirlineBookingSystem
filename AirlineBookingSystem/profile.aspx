@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="profile.aspx.cs" Inherits="AirlineBookingSystem.WebForm1" %>
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head runat="server">
@@ -22,6 +21,9 @@
         margin: 0%;
         font-family: "Poppins", sans-serif;
         box-sizing: border-box;
+      }
+      .middle-block {
+        width: 100%;
       }
       .nav-bar {
         background: rgba(2, 119, 189, 0.55);
@@ -94,7 +96,7 @@
         -webkit-backdrop-filter: blur(4px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
-        width: 50%;
+        width: 40%;
         height: 80vh;
         align-items: center;
         align-self: center;
@@ -113,7 +115,7 @@
   <body>
     <div class="fl">
       <div class="nav-bar">
-        <h1>WELCOME TO FlyAIR</h1>
+       <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
         <ul class="menu">
           <li>
             <a href=""> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
@@ -126,7 +128,7 @@
       <div class="outer-block">
         <h1 style="color: white">Profile Page</h1>
         <div class="middle-block">
-          <form action="register.aspx" method="post" >
+          <form action="register.aspx" method="post">
             <div class="container">
               <input type="text" placeholder="Username" name="uname" required />
               <input
@@ -146,7 +148,9 @@
               />
               <input type="text" placeholder="address" name="psw" required />
               <button type="submit">Update</button>
-              <button type="submit">Cancel</button>
+              <button type="submit" style="background-color: #0277bd">
+                Cancel
+              </button>
             </div>
           </form>
         </div>
