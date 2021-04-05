@@ -32,20 +32,28 @@ namespace AirlineBookingSystem
             //string mycon = "Server=localhost;Database=test1;Uid=root;Password= ;";
             MySqlConnection con = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
             MySqlCommand cmd = new MySqlCommand("insert into flyair.cust(fname,lname,gender,dob,city,state,email,phone,pass,cpass) values(@a1,@a2,@a3,@a4,@a5,@a6,@a7,@a8,@a9,@a10)", con);
-            cmd.Parameters.AddWithValue("@a1", fname);
-            cmd.Parameters.AddWithValue("@a2", lname);
-            cmd.Parameters.AddWithValue("@a3", gen);
-            cmd.Parameters.AddWithValue("@a4", dob);
-            cmd.Parameters.AddWithValue("@a5", city);
-            cmd.Parameters.AddWithValue("@a6", state);
-            cmd.Parameters.AddWithValue("@a7", email);
-            cmd.Parameters.AddWithValue("@a8", ph);
-            cmd.Parameters.AddWithValue("@a9", pass);
-            cmd.Parameters.AddWithValue("@a10", cpass);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
+            try
+            {
+                cmd.Parameters.AddWithValue("@a1", fname);
+                cmd.Parameters.AddWithValue("@a2", lname);
+                cmd.Parameters.AddWithValue("@a3", gen);
+                cmd.Parameters.AddWithValue("@a4", dob);
+                cmd.Parameters.AddWithValue("@a5", city);
+                cmd.Parameters.AddWithValue("@a6", state);
+                cmd.Parameters.AddWithValue("@a7", email);
+                cmd.Parameters.AddWithValue("@a8", ph);
+                cmd.Parameters.AddWithValue("@a9", pass);
+                cmd.Parameters.AddWithValue("@a10", cpass);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Cannot use this email')</script>");
+                con.Close();
+                return;
+            }
             Response.Write("<script>alert('Data Saved Successfully')</script>");
             Response.Redirect("login.aspx");
 
