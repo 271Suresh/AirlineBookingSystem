@@ -3,11 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head runat="server">
-    <title>Home Page</title>
+    <title>Home page</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -22,22 +24,16 @@
         box-sizing: border-box;
       }
       body {
-        background: linear-gradient(
-          45deg,
-          #5eb9ff 0%,
-          #5a8eff 49%,
-          #6682ff 82%
-        );
-
         animation: aurora 10s infinite;
+        background-image: url("images/plane2.jpg");
       }
 
       .nav-bar {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(2, 119, 189, 0.55);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(6.5px);
         -webkit-backdrop-filter: blur(6.5px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+
         height: 70px;
         display: flex;
         align-items: center;
@@ -65,28 +61,28 @@
       }
 
       .backimage {
-        background-image: url("b.jpg");
         background-repeat: no-repeat;
-        background-position: center;
+
         display: flex;
         flex-direction: column;
-        padding: 6rem;
+        padding-top: 5rem;
       }
 
       .content {
         margin-bottom: 5rem;
         padding: 2rem;
-        background: rgba(90, 142, 255, 0.55);
+        margin-right: 20rem;
+        margin-left: 20rem;
+        background: rgba(79, 195, 247, 0.25);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(7.5px);
-        -webkit-backdrop-filter: blur(7.5px);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        
       }
 
       input[type="text"],
@@ -104,12 +100,7 @@
         display: flex;
       }
       .btn-grad {
-        background-image: linear-gradient(
-          to right,
-          #0cebeb 0%,
-          #20e3b2 51%,
-          #0cebeb 100%
-        );
+        background-color: #ff7043;
       }
       .btn-grad {
         margin: 10px;
@@ -119,7 +110,7 @@
         transition: 0.5s;
         background-size: 200% auto;
         color: white;
-        box-shadow: 0 0 20px rgb(55, 140, 173);
+        box-shadow: 0 0 20px rgb(139, 134, 130);
         border-radius: 10px;
         display: block;
       }
@@ -200,15 +191,16 @@
       .content2 {
         margin-bottom: rem;
         /* background: rgba(90, 142, 255, 0.55);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(7.5px);
-        -webkit-backdrop-filter: blur(7.5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18); */
+              box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+              backdrop-filter: blur(7.5px);
+              -webkit-backdrop-filter: blur(7.5px);
+              border-radius: 10px;
+              border: 1px solid rgba(255, 255, 255, 0.18); */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 100%;
       }
 
       .book-style {
@@ -230,12 +222,16 @@
         );
       }
     </style>
+   
   </head>
   <body>
     <div class="fl">
       <div class="nav-bar">
-        <h1>WELCOME TO FlyAIR</h1>
+        <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
         <ul class="menu">
+          <li>
+            <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+          </li>
           <li><a href="login.aspx">LOGIN</a></li>
           <li><a href="register.aspx"> REGISTER</a></li>
         </ul>
