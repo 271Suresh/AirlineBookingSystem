@@ -229,6 +229,9 @@
       <div class="nav-bar">
         <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
         <ul class="menu">
+           <li>
+            <a href="bookings.aspx"> Bookings</a>
+          </li>
           <li>
             <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
           </li>

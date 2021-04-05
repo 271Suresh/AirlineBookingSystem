@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bookings.aspx.cs" Inherits="AirlineBookingSystem.bookings" %>
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head runat="server">
@@ -22,9 +23,7 @@
         font-family: "Poppins", sans-serif;
         box-sizing: border-box;
       }
-      .middle-block {
-        width: 100%;
-      }
+
       .nav-bar {
         background: rgba(2, 119, 189, 0.55);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -96,10 +95,8 @@
         -webkit-backdrop-filter: blur(4px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
-        width: 40%;
+        width: 80%;
         height: 80vh;
-        align-items: center;
-        align-self: center;
         margin: auto;
         margin-top: 3rem;
         padding: 3rem;
@@ -110,14 +107,51 @@
         flex-direction: column;
         padding: 3rem;
       }
+      .navigator {
+        font-size: larger;
+        align-self: center;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-bottom: 2%;
+      }
+      .middle-block {
+        width: 100%;
+      }
+      .page1,
+      .page2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .cards {
+        background: rgba(79, 195, 247, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        margin-bottom: 4%;
+        width: 80%;
+      }
     </style>
+    <script>
+      function show(shown, hidden) {
+        document.getElementById(shown).style.display = "block";
+        document.getElementById(hidden).style.display = "none";
+        return false;
+      }
+    </script>
   </head>
   <body>
     <div class="fl">
       <div class="nav-bar">
-       <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
+        <h1>WELCOME TO FlyAIR</h1>
         <ul class="menu">
-          <li>
+         <li>
             <a href="bookings.aspx"> Bookings</a>
           </li>
           <li>
@@ -129,33 +163,79 @@
       </div>
 
       <div class="outer-block">
-        <h1 style="color: white">Profile Page</h1>
+        <div class="navigator">
+          <div>
+            <a href="#" onclick="return show('page2','page1');">
+              Completed Trips
+            </a>
+          </div>
+          <div>
+            <a href="#" onclick="return show('page1','page2');"
+              >Upcoming trips
+            </a>
+          </div>
+        </div>
+
         <div class="middle-block">
-          <form action="register.aspx" method="post">
-            <div class="container">
-              <input type="text" placeholder="Username" name="uname" required />
-              <input
-                type="password"
-                placeholder="Password"
-                name="psw"
-                required
-              />
-              <input type="text" placeholder="First name" name="psw" required />
-              <input type="text" placeholder="last name" name="psw" required />
-              <input type="email" placeholder="email" name="psw" required />
-              <input
-                type="text"
-                placeholder="Phone number"
-                name="psw"
-                required
-              />
-              <input type="text" placeholder="address" name="psw" required />
-              <button type="submit">Update</button>
-              <button type="submit" style="background-color: #0277bd">
-                Cancel
-              </button>
+          <div  class="page1" id="page1">
+            <div class="cards">
+              <div class="date">
+                <h1>21</h1>
+                March 2021
+                <p>sunday</p>
+              </div>
+              <div class="place">
+                <h1>Pune-Goa</h1>
+
+                <p>Emirates</p>
+              </div>
+              <div class="details">
+                <h1>upcoming</h1>
+
+                <p>trip1202</p>
+              </div>
             </div>
-          </form>
+
+            <div class="cards">
+              <div class="date">
+                <h1>21</h1>
+                March 2021
+                <p>sunday</p>
+              </div>
+              <div class="place">
+                <h1>Pune-Manglore</h1>
+
+                <p>Emirates</p>
+              </div>
+              <div class="details">
+                <h1>upcoming</h1>
+
+                <p>trip1202</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="page2" style="display: none">
+            <div id="page1">
+              <div class="cards">
+                <div class="date">
+                  <h1>21</h1>
+                  March 2021
+                  <p>sunday</p>
+                </div>
+                <div class="place">
+                  <h1>Pune-Goa</h1>
+
+                  <p>Emirates</p>
+                </div>
+                <div class="details">
+                  <h1>Completed</h1>
+
+                  <p>trip1202</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
