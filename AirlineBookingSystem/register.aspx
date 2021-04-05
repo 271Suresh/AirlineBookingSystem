@@ -83,19 +83,19 @@
       }
     </style>
     <script>
-	    //function name(){
-     //       var x = /^\d{10}$/;
-     //       var no = document.forms[0].pass.value
-     //       if (!no.match(x))
-		   // {
-			  //  alert('invalid Name');
-			  //  return false;
-		   // }
-		   // return true;
-     //   }
+	    function phno(){
+            var x = /^\d{10}$/;
+            var no = document.forms[0].phoneno.value
+            if (!no.match(x))
+		    {
+			    alert('invalid phone Number');
+			    return false;
+		    }
+		    return true;
+        }
         function passCpass() {
-            var pwd = document.forms[1].pass.value
-            var cpwd = document.forms[1].cpass.value
+            var pwd = document.forms[0].pass.value
+            var cpwd = document.forms[0].cpass.value
             if (pwd == cpwd) {
                 return true;
             }
@@ -141,7 +141,7 @@
             <input type="text" name="state" placeholder="State" required/> <br />
             <input type="text" name="email" placeholder="Email" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" onblur="name(this.value);" name="phoneno" placeholder="Mobile No" required/> <br />
+            <input type="text" onblur="phno(this.value);" name="phoneno" placeholder="Mobile No" required/> <br />
             <input type="password" name="pass" placeholder="Password" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="password" name="cpass" placeholder="Confirm Password" required/>
