@@ -83,6 +83,24 @@
       }
     </style>
     <script>
+        function fName() {
+            var x = /^[A-Za-z]/;
+            var no = document.forms[0].fname.value
+            if (!no.match(x)) {
+                alert('invalid First Name');
+                return false;
+            }
+            return true;
+        }
+        function lName() {
+            var x = /^[A-Za-z]/;
+            var no = document.forms[0].lname.value
+            if (!no.match(x)) {
+                alert('invalid Last Name');
+                return false;
+            }
+            return true;
+        }
 	    function phno(){
             var x = /^\d{10}$/;
             var no = document.forms[0].phoneno.value
@@ -112,10 +130,10 @@
 
       <div class="border">
         <form
-          id="registration"
-          runat="server"
-          method="post"
-          onsubmit="return passCpass()"
+            id="registration"
+            runat="server"
+            method="post"
+            onsubmit="return !!(fName() & lName() & phno() & passCpass());"
         >
           <div class="container">
             <input type="text" name="fname" placeholder="First Name" required/>
@@ -139,9 +157,9 @@
             <input type="text" name="city" placeholder="City" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" name="state" placeholder="State" required/> <br />
-            <input type="text" name="email" placeholder="Email" required/>
+            <input type="email" name="email" placeholder="Email" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" onblur="phno(this.value);" name="phoneno" placeholder="Mobile No" required/> <br />
+            <input type="text" name="phoneno" placeholder="Mobile No" required/> <br />
             <input type="password" name="pass" placeholder="Password" required/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="password" name="cpass" placeholder="Confirm Password" required/>
