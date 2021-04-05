@@ -47,6 +47,19 @@
         width: 100%;
         border-radius: 12px;
       }
+       a {
+        
+        color: black;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        font-size:small;
+        text-decoration: none;
+        border-radius: 12px;
+        text-align: center;
+        width:100%;
+      }
 
       .button:hover {
         opacity: 0.8;
@@ -81,6 +94,8 @@
         align-items: center;
         align-self: center;
       }
+
+      
     </style>
     <script>
         function fName() {
@@ -165,6 +180,10 @@
             <input type="password" name="cpass" placeholder="Confirm Password" required/>
             <br />
              <asp:Button class="button" Text="Register" runat="server" id="button" OnClick="button_Click"/>
+                 <br />
+             
+              
+              <a href="login.aspx" >Already have an account? Login</a>
             <br />
           </div>
           <br />
