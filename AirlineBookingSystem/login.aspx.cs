@@ -41,7 +41,7 @@ namespace AirlineBookingSystem
             }
             else
             {
-                Response.Write("<script>alert('Login Failed')</script>");
+                Response.Write("<script>alert('Invalid Username or Password')</script>");
             }
         }
     }
