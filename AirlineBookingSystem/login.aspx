@@ -106,8 +106,6 @@
                 required
               />
               <asp:Button class="button" Text="Login" runat="server" id="button" OnClick="button_Click"/>
-              <a href="register.aspx" style="background-color:#0277BD;">Register</a>
-              <a href="register.aspx" style="background-color:#0277BD;">Forgot Password</a>
             </div>
           </form>
         </div>
