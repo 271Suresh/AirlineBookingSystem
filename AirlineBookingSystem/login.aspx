@@ -58,25 +58,33 @@
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         width: 75%;
-        height: 80vh;
         align-items: center;
         align-self: center;
         margin: auto;
-        padding: 5rem;
+        padding: 3rem;
       }
 
       .middle-block {
         display: flex;
-        align-items: center;
+
+        width: 100%;
+        flex-wrap: wrap;
       }
       .container {
         display: flex;
         flex-direction: column;
-
-        padding: 7rem;
+        padding: 3rem;
+        flex-wrap: wrap;
       }
       .image {
         width: 50%;
+
+        display: flex;
+        align-items: center;
+      }
+      .image img {
+        display: flex;
+        width: 600px;
       }
       .form-container {
         width: 50%;
@@ -88,7 +96,7 @@
       <h1 style="color: white">WELCOME TO FlyAIR Login</h1>
       <div class="middle-block">
         <div class="image">
-          <img src="images/login.png" height="505px" width="" alt="" />
+          <img src="login.png" alt="" />
         </div>
         <div class="form-container">
           <form action="register.aspx" method="post">
@@ -106,8 +114,12 @@
                 required
               />
               <button type="submit">Login</button>
-              <a href="register.aspx" style="background-color:#0277BD;">Register</a>
-              <a href="register.aspx" style="background-color:#0277BD;">Forgot Password</a>
+              <a href="register.aspx" style="background-color: #0277bd"
+                >Register</a
+              >
+              <a href="register.aspx" style="background-color: #0277bd"
+                >Forgot Password</a
+              >
             </div>
           </form>
         </div>
