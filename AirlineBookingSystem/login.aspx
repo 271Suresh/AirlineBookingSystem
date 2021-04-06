@@ -58,25 +58,33 @@
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         width: 75%;
-        height: 80vh;
         align-items: center;
         align-self: center;
         margin: auto;
-        padding: 5rem;
+        padding: 3rem;
       }
 
       .middle-block {
         display: flex;
-        align-items: center;
+
+        width: 100%;
+        flex-wrap: wrap;
       }
       .container {
         display: flex;
         flex-direction: column;
-
-        padding: 7rem;
+        padding: 3rem;
+        flex-wrap: wrap;
       }
       .image {
         width: 50%;
+
+        display: flex;
+        align-items: center;
+      }
+      .image img {
+        display: flex;
+        width: 600px;
       }
       .form-container {
         width: 50%;
