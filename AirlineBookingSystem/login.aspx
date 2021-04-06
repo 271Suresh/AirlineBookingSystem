@@ -31,7 +31,7 @@
         border-radius: 12px;
       }
 
-      button,
+      .button,
       a {
         background-color: rgb(233, 55, 55);
         color: white;
@@ -44,7 +44,7 @@
         text-align: center;
       }
 
-      button:hover,
+      .button:hover,
       a:hover {
         opacity: 0.8;
       }
@@ -91,7 +91,7 @@
           <img src="images/login.png" height="505px" width="" alt="" />
         </div>
         <div class="form-container">
-          <form action="register.aspx" method="post">
+          <form action="" runat="server" method="post">
             <div class="container">
               <input
                 type="text"
@@ -102,10 +102,10 @@
               <input
                 type="password"
                 placeholder="Enter Password"
-                name="psw"
+                name="pwd"
                 required
               />
-              <button type="submit">Login</button>
+              <asp:Button class="button" Text="Login" runat="server" id="button" OnClick="button_Click"/>
               <a href="register.aspx" style="background-color:#0277BD;">Register</a>
               <a href="register.aspx" style="background-color:#0277BD;">Forgot Password</a>
             </div>
