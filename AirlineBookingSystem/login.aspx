@@ -105,8 +105,9 @@
                 name="pwd"
                 required
               />
-              <asp:Button class="button" Text="Login" runat="server" id="button" OnClick="button_Click"/>
-
+                <asp:Button class="button" Text="Login" runat="server" id="button" OnClick="button_Click"/>
+                <a href="register.aspx" style="background-color: #0277bd">Register</a>
+                <a href="register.aspx" style="background-color: #0277bd">Forgot Password</a>
             </div>
           </form>
         </div>
