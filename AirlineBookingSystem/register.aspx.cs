@@ -38,7 +38,7 @@ namespace AirlineBookingSystem
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
-                if (Equals(mydr["email"].ToString(), email))
+                if (email.Equals(mydr["email"].ToString()))
                 {
                     Response.Write("<script>alert('Email Already exists')</script>");
                 }
