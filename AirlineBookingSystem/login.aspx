@@ -96,7 +96,7 @@
       <h1 style="color: white">WELCOME TO FlyAIR Login</h1>
       <div class="middle-block">
         <div class="image">
-          <img src="login.png" alt="" />
+          <img src="images/login.png" alt="" />
         </div>
         <div class="form-container">
           <form action="register.aspx" method="post">
