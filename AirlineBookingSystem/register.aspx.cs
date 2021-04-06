@@ -29,6 +29,8 @@ namespace AirlineBookingSystem
             string pass = Request.Form.Get("pass");
             string cpass = Request.Form.Get("cpass");
 
+          
+
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
             string query = "Select email from cust";
@@ -36,7 +38,7 @@ namespace AirlineBookingSystem
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
-                if (mydr["email"].ToString() == email)
+                if (Equals(mydr["email"].ToString(), email))
                 {
                     Response.Write("<script>alert('Email Already exists')</script>");
                 }
