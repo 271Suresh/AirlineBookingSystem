@@ -189,7 +189,7 @@
         color: #009879;
       }
       .content2 {
-        margin-bottom: rem;
+      
         /* background: rgba(90, 142, 255, 0.55);
               box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
               backdrop-filter: blur(7.5px);
@@ -241,7 +241,9 @@
       </div>
 
       <div class="backimage">
-        <form action="" method="get">
+        <form  id="registration"
+            runat="server"
+            method="post">
           <div class="content">
             <div class="input">
               <div class="labeltext">
@@ -262,17 +264,11 @@
 
             <div class="buttons">
               <div class="labeltext">
-                <button class="btn-grad">
-                  Search Flights
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </button>
+                  <asp:Button Text="Search Flights" ID="dbdata"  class="btn-grad" runat="server" />
               </div>
 
               <div class="labeltext">
-                <button class="btn-grad">
-                  Get Cheapest Flight
-                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                </button>
+                    <asp:Button Text="Get Cheapest Flight" Id="apidata"  class="btn-grad" runat="server" OnClick="apidata_Click" />
               </div>
             </div>
           </div>

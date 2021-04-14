@@ -14,7 +14,6 @@ namespace AirlineBookingSystem
         {
 
         }
-
         protected void button_Click(object sender, EventArgs e)
         {
            
@@ -28,8 +27,6 @@ namespace AirlineBookingSystem
             string ph = Request.Form.Get("phoneno");
             string pass = Request.Form.Get("pass");
             string cpass = Request.Form.Get("cpass");
-
-          
 
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
