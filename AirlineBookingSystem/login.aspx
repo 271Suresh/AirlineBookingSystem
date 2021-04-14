@@ -103,7 +103,7 @@
             <div class="container">
               <input
                 type="text"
-                placeholder="Enter Username"
+                placeholder="enter username"
                 name="uname"
                 required
               />
@@ -115,7 +115,8 @@
               />
                 <asp:Button class="button" Text="Login" runat="server" id="button" OnClick="button_Click"/>
                 <a href="register.aspx" style="background-color: #0277bd">Register</a>
-                <a href="register.aspx" style="background-color: #0277bd">Forgot Password</a>
+                <a href="forgot.aspx" style="background-color: #0277bd">Forgot Password</a>
+                <a href="resetpassword.aspx" style="background-color: #0277bd">Change Password</a>
             </div>
           </form>
         </div>
