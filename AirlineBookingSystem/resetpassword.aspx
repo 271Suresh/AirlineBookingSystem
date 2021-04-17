@@ -98,7 +98,7 @@
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             width: 40%;
-            height: 50vh;
+            height: 70vh;
             align-items: center;
             align-self: center;
             margin: auto;
@@ -127,12 +127,12 @@
         <div class="outer-block">
             <h1 style="color: white">Reset Password</h1>
             <div class="middle-block">
-                <form action="register.aspx" runat="server" method="post">
+                <form action="#" runat="server" method="post">
                     <div class="container">
                         <input type="text" placeholder="Email Id" name="email" required />
                         <input type="text" placeholder="Current Password" name="curpass" required />
-                        <input type="text" placeholder="New Password" name="pass" required />
-                        <input type="text" placeholder="Confirm Password" name="cpass" required />
+                        <input type="text" placeholder="New Password" name="pwd" required />
+                        <input type="text" placeholder="Confirm Password" name="cpwd" required />
                         <asp:Button class="button" Text="Reset" runat="server" Id="Button1" OnClick="Button1_Click"/>
                     </div>
                 </form>

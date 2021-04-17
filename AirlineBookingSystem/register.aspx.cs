@@ -64,8 +64,9 @@ namespace AirlineBookingSystem
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
-                Response.Write("<script>alert('Data Saved Successfully')</script>");
-                Response.Redirect("login.aspx");
+                //Response.Write("<script>alert('Data Saved Successfully')</script>");
+                //Response.Redirect("login.aspx");
+                Response.Write("<script language='javascript'>window.alert('Registration Successful');window.location='login.aspx';</script>");
             }
 
         }
