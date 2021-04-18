@@ -37,6 +37,8 @@ namespace AirlineBookingSystem
 
             if (email_flag == 1)
             {
+                mydr.Read();
+                Session["email"] = email;
                 Response.Redirect("home.aspx");
             }
             else
