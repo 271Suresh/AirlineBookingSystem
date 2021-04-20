@@ -48,7 +48,8 @@ namespace AirlineBookingSystem
 				string fromaddress = "FlyAir<flyairofficial00@gmail.com>";
 				msg.From = new MailAddress(fromaddress);
 				smtp.Send(msg);
-				Response.Write("<script>alert('email sent')</script>");
+				//Response.Write("<script>alert('email sent')</script>");
+				Response.Write("<script language='javascript'>window.alert('Check Your Mail');window.location='login.aspx';</script>");
 			}
             else
             {

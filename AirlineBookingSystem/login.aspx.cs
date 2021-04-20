@@ -39,7 +39,6 @@ namespace AirlineBookingSystem
             {
                 mydr.Read();
                 Session["email"] = email;
-              
                 Response.Redirect("home.aspx");
             }
             else

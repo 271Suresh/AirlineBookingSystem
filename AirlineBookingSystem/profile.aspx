@@ -71,7 +71,7 @@
         border-radius: 12px;
       }
 
-      button {
+      .button{
         background-color: rgb(233, 55, 55);
         color: white;
         padding: 14px 20px;
@@ -83,7 +83,7 @@
         text-align: center;
       }
 
-      button:hover,
+      .button:hover,
       a:hover {
         opacity: 0.8;
       }
@@ -150,10 +150,11 @@
                 required
               />
               <input type="text" placeholder="address" name="psw" required />
-              <button type="submit">Update</button>
-              <button type="submit" style="background-color: #0277bd">
+              <button type="submit" class="button">Update</button>
+              <button type="submit" class="button" style="background-color: #0277bd">
                 Cancel
               </button>
+               <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">Change Password</a>
             </div>
           </form>
         </div>
