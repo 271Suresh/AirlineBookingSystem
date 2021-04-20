@@ -232,14 +232,24 @@
            <li>
             <a href="bookings.aspx"> Bookings</a>
           </li>
-          <li>
+            <%
+                if (Session["email"]!=null)
+                {   %>
+          <li >
             <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
           </li>
-          <li><a href="login.aspx">LOGIN</a></li>
-          <li><a href="register.aspx"> REGISTER</a></li>
+          <li><a href="logout.aspx">LOGOUT</a></li>
+           <%  }
+            else
+            { %>
+              <li><a href="login.aspx"> Login</a></li>
+
+              <li><a href="register.aspx"> REGISTER</a></li>
+             <%  } %>
+        
         </ul>
       </div>
-
+       
       <div class="backimage">
         <form  id="registration"
             runat="server"

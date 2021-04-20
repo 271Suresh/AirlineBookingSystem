@@ -12,7 +12,7 @@ namespace AirlineBookingSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void button_Click(object sender, EventArgs e)
@@ -39,6 +39,7 @@ namespace AirlineBookingSystem
             {
                 mydr.Read();
                 Session["email"] = email;
+              
                 Response.Redirect("home.aspx");
             }
             else
