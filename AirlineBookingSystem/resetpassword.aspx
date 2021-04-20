@@ -113,31 +113,31 @@
           }
         </style>
     </head>
-<body>
-    <div class="fl">
-        <div class="nav-bar">
-            <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
-            <ul class="menu">
-                <li><a href="bookings.aspx"> Bookings</a></li>
-                <li><a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
-                <li><a href="login.aspx">LOGIN</a></li>
-                <li><a href="register.aspx"> REGISTER</a></li>
-            </ul>
-        </div>
-        <div class="outer-block">
-            <h1 style="color: white">Reset Password</h1>
-            <div class="middle-block">
-                <form action="#" runat="server" method="post">
-                    <div class="container">
-                        <input type="text" placeholder="Email Id" name="email" required />
-                        <input type="text" placeholder="Current Password" name="curpass" required />
-                        <input type="text" placeholder="New Password" name="pwd" required />
-                        <input type="text" placeholder="Confirm Password" name="cpwd" required />
-                        <asp:Button class="button" Text="Reset" runat="server" Id="Button1" OnClick="Button1_Click"/>
-                    </div>
-                </form>
+    <body>
+        <div class="fl">
+            <div class="nav-bar">
+                <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
+                <ul class="menu">
+                    <li><a href="bookings.aspx"> Bookings</a></li>
+                    <li><a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+                    <li><a href="login.aspx">LOGIN</a></li>
+                    <li><a href="register.aspx"> REGISTER</a></li>
+                </ul>
+            </div>
+            <div class="outer-block">
+                <h1 style="color: white">Reset Password</h1>
+                <div class="middle-block">
+                    <form action="#" runat="server" method="post">
+                        <div class="container">
+                            <input type="text" placeholder="Email Id" name="email" required />
+                            <input type="text" placeholder="Current Password" name="curpass" required />
+                            <input type="text" placeholder="New Password" name="pwd" required />
+                            <input type="text" placeholder="Confirm Password" name="cpwd" required />
+                            <asp:Button class="button" Text="Reset" runat="server" Id="Button1" OnClick="Button1_Click"/>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

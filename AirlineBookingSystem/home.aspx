@@ -4,7 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>Home page</title>
-
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
             rel="stylesheet"
@@ -236,7 +235,7 @@
                     <li >
                         <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                     </li>
-                    <li><a href="logout.aspx">LOGOUT</a></li>
+                    <li><a href="home.aspx">LOGOUT</a></li>
                     <%  }
                     else
                     { %>
@@ -269,9 +268,9 @@
                             <div class="labeltext">
                                 <asp:Button Text="Search Flights" ID="dbdata"  class="btn-grad" runat="server" />
                             </div>
-                            <div class="labeltext">
+<%--                            <div class="labeltext">
                                 <asp:Button Text="Get Cheapest Flight" Id="apidata"  class="btn-grad" runat="server" OnClick="apidata_Click" />
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
                 </form>
