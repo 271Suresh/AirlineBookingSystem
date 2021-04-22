@@ -27,15 +27,23 @@ namespace AirlineBookingSystem
 
         public string GetWhileLoopData()
         {
-            string from = Request.Form.Get("source");
-            string to = Request.Form.Get("destination");
+            string from = source1.SelectedValue;
+            string to = destination1.SelectedValue;
             string htmlStr = " ";
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
             string query = "Select * from flight where source='"+ from +"' and destination='"+ to +"'";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
-            while (mydr.Read())
+            int from_to = 0;
+            //while (mydr.Read())
+            //{
+            //    if (mydr.HasRows==true)
+            //    {
+            //        from_to = 1;
+            //    }
+            //}
+            while(mydr.Read())
             {
                 string flino1 = mydr.GetString(1);
                 string sairline1 = mydr.GetString(8);
@@ -48,6 +56,15 @@ namespace AirlineBookingSystem
                 htmlStr += "<tr><td>" + flino1 + "</td><td>" + sairline1 + "</td><td>" + source1 + "</td><td>" + destination1 + "</td>" +
                     "<td>" + date1 + "</td><td>" + dtime1 + "</td><td>" + atime1 + "</td><td>" + price1 + "</td>";
             }
+            //if (from_to == 1)
+            //{
+                
+                
+            //}
+            //else
+            //{
+            //    Response.Write("<script>alert('No Flights Available')</script>");
+            //}
             conn.Close();
             return htmlStr;
         }

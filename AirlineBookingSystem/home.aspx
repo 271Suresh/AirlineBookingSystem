@@ -251,17 +251,39 @@
                         <div class="input">
                             <div class="labeltext">
                                 <label for="source">FROM</label>
-                                <input class="textbox" type="text" name="source" id="" />
+                                <asp:DropDownList class="textbox" ID="source1" runat="server" name="source">  
+                                    <asp:ListItem Value="0">Select SOURCE</asp:ListItem>  
+                                    <asp:ListItem Value="MUMBAI (BOI)">MUMBAI (BOI) </asp:ListItem>  
+                                    <asp:ListItem Value="CHENNAI (MAA)">CHENNAI (MAA)</asp:ListItem>  
+                                    <asp:ListItem Value="LUCKNOW (LKO)">LUCKNOW (LKO) </asp:ListItem> 
+                                    <asp:ListItem Value="KOCHI (COK)">KOCHI (COK)</asp:ListItem> 
+                                    <asp:ListItem Value="PATNA (PAT)">PATNA (PAT)</asp:ListItem>     
+                                    <asp:ListItem Value="PUNE (PNQ)">PUNE (PNQ)</asp:ListItem>  
+                                    <asp:ListItem Value="DELHI (DEL)">DELHI (DEL) </asp:ListItem> 
+                                    <asp:ListItem Value="JAIPUR (JAI)">JAIPUR (JAI)</asp:ListItem> 
+                                    <asp:ListItem Value="VASCO DA GAMA (GOI)">VASCO DA GAMA (GOI)</asp:ListItem> 
+                                </asp:DropDownList>
                             </div>
 
                             <div class="labeltext">
                                 <label for="destination">TO</label>
-                                <input class="textbox" type="text" name="destination" id="" />
+                                <asp:DropDownList class="textbox" ID="destination1" runat="server" name="destination" >
+                                    <asp:ListItem Value="0">Select DESTINATION</asp:ListItem> 
+                                    <asp:ListItem Value="KOCHI (COK)">KOCHI (COK)</asp:ListItem> 
+                                    <asp:ListItem Value="PATNA (PAT)">PATNA (PAT)</asp:ListItem>     
+                                    <asp:ListItem Value="PUNE (PNQ)">PUNE (PNQ)</asp:ListItem>  
+                                    <asp:ListItem Value="DELHI (DEL)">DELHI (DEL) </asp:ListItem> 
+                                    <asp:ListItem Value="JAIPUR (JAI)">JAIPUR (JAI)</asp:ListItem> 
+                                    <asp:ListItem Value="VASCO DA GAMA (GOI)">VASCO DA GAMA (GOI)</asp:ListItem> 
+                                    <asp:ListItem Value="MUMBAI (BOI)">MUMBAI (BOI) </asp:ListItem>  
+                                    <asp:ListItem Value="CHENNAI (MAA)">CHENNAI (MAA)</asp:ListItem>  
+                                    <asp:ListItem Value="LUCKNOW (LKO)">LUCKNOW (LKO) </asp:ListItem> 
+                                </asp:DropDownList>
                             </div>
 
                             <div class="labeltext">
                                 <label for="date">departure date</label>
-                                <input class="textbox" type="date" name="date" id="" />
+                                <asp:TextBox runat="server" class="textbox" Id="Date" textmode="Date"/>
                             </div>
                         </div>
                         <div class="buttons">
