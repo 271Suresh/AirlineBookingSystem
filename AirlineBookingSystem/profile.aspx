@@ -39,6 +39,7 @@
           }
           .menu {
             display: flex;
+            align-items:center;
           }
           .nav-bar h1 {
             color: white;
