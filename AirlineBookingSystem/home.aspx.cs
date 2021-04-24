@@ -35,7 +35,7 @@ namespace AirlineBookingSystem
             string query = "Select * from flight where source='"+ from +"' and destination='"+ to +"'";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
-            int from_to = 0;
+            //int from_to = 0;
             //while (mydr.Read())
             //{
             //    if (mydr.HasRows==true)
@@ -69,5 +69,9 @@ namespace AirlineBookingSystem
             return htmlStr;
         }
 
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+        }
     }
 }

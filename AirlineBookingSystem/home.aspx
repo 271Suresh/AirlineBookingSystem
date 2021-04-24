@@ -63,11 +63,12 @@
 
             display: flex;
             flex-direction: column;
-            padding-top: 5rem;
+            padding-top: 0rem;
             }
 
             .content {
             margin-bottom: 5rem;
+            margin-top:5rem;
             padding: 2rem;
             margin-right: 20rem;
             margin-left: 20rem;
@@ -124,10 +125,16 @@
             }
 
             .textbox {
+                padding: 12px 20px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 12px;
+
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
-            border-radius: 5px;
-            border: 1px solid #848484;
+            /*border-radius: 5px;
+            border: 1px solid #848484;*/
             outline: 0;
             height: 3rem;
             width: 15rem;
@@ -201,6 +208,14 @@
             width: 100%;
             }
 
+            .myButton {
+	        background-color:transparent;
+	        display:inline-block;
+	        cursor:pointer;
+	        font-size:17px;
+	        padding:16px 31px;
+            border:none;
+            }
             .book-style {
             margin: 10px;
             padding: 12px 45px;
@@ -223,30 +238,31 @@
     </head>
     <body>
         <div class="fl">
-            <div class="nav-bar">
-                <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
-                <ul class="menu">
-                    <li>
-                        <a href="bookings.aspx"> Bookings</a>
-                    </li>
-                    <%
-                    if (Session["email"]!=null)
-                    {   %>
-                    <li >
-                        <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="home.aspx">LOGOUT</a></li>
-                    <%  }
-                    else
-                    { %>
-                    <li><a href="login.aspx"> Login</a></li>
-                    <li><a href="register.aspx"> REGISTER</a></li>
-                    <%  } %>
-        
-                </ul>
-            </div>
             <div class="backimage">
                 <form  id="registration" runat="server" method="post">
+                    <div class="nav-bar">
+                        <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
+                        <ul class="menu">
+                            <%
+                            if (Session["email"]!=null)
+                            {   %>
+                            <li>
+                                <a href="bookings.aspx"> Bookings</a>
+                            </li>
+                            <li>
+                                <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            </li>
+                    
+                            <li><asp:Button Text="Logout" class="myButton" runat="server" Id="logout" OnClick="logout_Click"/></li>
+                            <%  }
+                            else
+                            { %>
+                            <li><a href="login.aspx"> Login</a></li>
+                            <li><a href="register.aspx"> REGISTER</a></li>
+                            <%  } %>
+        
+                        </ul>
+                    </div>
                     <div class="content">
                         <div class="input">
                             <div class="labeltext">
@@ -317,6 +333,6 @@
                     </table>
                 </div>
             </div>
-        </div>
+            </div>
     </body>
 </html>
