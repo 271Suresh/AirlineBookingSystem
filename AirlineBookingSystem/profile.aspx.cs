@@ -13,5 +13,12 @@ namespace AirlineBookingSystem
         {
             Response.Write(Session["email"]);
         }
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+
+
+        }
     }
 }

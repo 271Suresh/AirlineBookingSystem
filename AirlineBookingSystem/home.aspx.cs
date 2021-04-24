@@ -72,6 +72,9 @@ namespace AirlineBookingSystem
         protected void logout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
+            Session.Clear();
+            
+            
         }
     }
 }

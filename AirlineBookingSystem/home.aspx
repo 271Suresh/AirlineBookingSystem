@@ -40,6 +40,7 @@
             }
             .menu {
             display: flex;
+            align-items:center;
             }
             .nav-bar h1 {
             color: white;
@@ -209,6 +210,7 @@
             }
 
             .myButton {
+            color:white;
 	        background-color:transparent;
 	        display:inline-block;
 	        cursor:pointer;
@@ -235,6 +237,18 @@
             );
             }
         </style>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var today = new Date();
+                var month = ('0' + (today.getMonth() + 1)).slice(-2);
+                var day = ('0' + today.getDate()).slice(-2);
+                var year = today.getFullYear();
+                var date = year + '-' + month + '-' + day;
+                $('[id*=Date]').attr('min', date);
+            });
+        </script>
     </head>
     <body>
         <div class="fl">

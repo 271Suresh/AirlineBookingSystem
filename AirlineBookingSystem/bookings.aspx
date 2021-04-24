@@ -136,6 +136,16 @@
             margin-bottom: 4%;
             width: 80%;
           }
+          
+            .myButton {
+            color:white;
+	        background-color:transparent;
+	        display:inline-block;
+	        cursor:pointer;
+	        font-size:17px;
+	        padding:16px 31px;
+            border:none;
+            }
         </style>
         <script>
           function show(shown, hidden) {
@@ -150,15 +160,26 @@
             <div class="nav-bar">
                 <h1>WELCOME TO FlyAIR</h1>
                 <ul class="menu">
-                    <li>
-                        <a href="bookings.aspx"> Bookings</a>
-                    </li>
-                    <li>
-                        <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="login.aspx">LOGIN</a></li>
-                    <li><a href="register.aspx"> REGISTER</a></li>
-                </ul>
+                            <%
+                            if (Session["email"]!=null)
+                            {   %>
+                            <li>
+                                <a href="bookings.aspx"> Bookings</a>
+                            </li>
+                            <li>
+                                <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                            </li>
+                    
+                            <li> <form   runat="server" method="post">
+                                <asp:Button Text="Logout" class="myButton" runat="server" Id="logout" OnClick="logout_Click"/></form></li>
+                            <%  }
+                            else
+                            { %>
+                            <li><a href="login.aspx"> Login</a></li>
+                            <li><a href="register.aspx"> REGISTER</a></li>
+                            <%  } %>
+        
+                        </ul>
             </div>
 
             <div class="outer-block">
