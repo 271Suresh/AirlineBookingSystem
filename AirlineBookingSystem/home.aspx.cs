@@ -58,8 +58,6 @@ namespace AirlineBookingSystem
             }
             //if (from_to == 1)
             //{
-                
-                
             //}
             //else
             //{
