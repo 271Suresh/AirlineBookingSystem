@@ -210,6 +210,7 @@
     <Content Include="resetpassword.aspx" />
     <Content Include="styles\style.css" />
     <Content Include="profile.aspx" />
+    <Content Include="bookconfirm.aspx" />
     <Content Include="welcome.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -343,6 +344,13 @@
     </Compile>
     <Compile Include="profile.aspx.designer.cs">
       <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bookconfirm.aspx.cs">
+      <DependentUpon>bookconfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bookconfirm.aspx.designer.cs">
+      <DependentUpon>bookconfirm.aspx</DependentUpon>
     </Compile>
     <Compile Include="welcome.aspx.cs">
       <DependentUpon>welcome.aspx</DependentUpon>
