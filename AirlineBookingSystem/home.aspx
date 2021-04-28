@@ -318,7 +318,7 @@
                         </div>
                         <div class="buttons">
                             <div class="labeltext">
-                                <asp:Button Text="Search Flights" ID="dbdata"  class="btn-grad" runat="server" />
+                                <asp:Button Text="Search Flights" ID="dbdata"  class="btn-grad" runat="server" OnClick="dbdata_Click" />
                             </div>
 <%--                            <div class="labeltext">
                                 <asp:Button Text="Get Cheapest Flight" Id="apidata"  class="btn-grad" runat="server" OnClick="apidata_Click" />

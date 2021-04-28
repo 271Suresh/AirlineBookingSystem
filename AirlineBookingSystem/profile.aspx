@@ -66,17 +66,18 @@
           input[type="text"],
           input[type="email"],
           input[type="password"] {
-            padding: 12px 20px;
+            padding: 10px 20px;
             margin: 8px 0;
             border: 1px solid #ccc;
             box-sizing: border-box;
             border-radius: 12px;
+            /*width: 500px*/
           }
 
           .button{
             background-color: rgb(233, 55, 55);
             color: white;
-            padding: 14px 20px;
+            padding: 10px 20px;
             margin: 8px 0;
             border: none;
             cursor: pointer;
@@ -100,12 +101,14 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
             width: 40%;
             height: 80vh;
-            align-items: center;
-            align-self: center;
             margin: auto;
             margin-top: 3rem;
             padding: 3rem;
           }
+
+          /*.h-block{
+              display:flex;
+          }*/
 
           .container {
             display: flex;
@@ -126,53 +129,57 @@
     </head>
     <body>
         <div class="fl">
-           <div class="backimage">
-              <div class="nav-bar">
-                        <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
-                        <ul class="menu">
-                            <%
-                            if (Session["email"]!=null)
-                            {   %>
-                            <li>
-                                <a href="bookings.aspx"> Bookings</a>
-                            </li>
-                            <li>
-                                <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
-                            </li>
+            <div class="nav-bar">
+                <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
+                <ul class="menu">
+                <%
+                if (Session["email"]!=null)
+                {   %>
+                <li>
+                    <a href="bookings.aspx"> Bookings</a>
+                </li>
+                <li>
+                    <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                </li>
                     
-                            <li><form   runat="server" method="post">
-                                <asp:Button Text="Logout" class="myButton" runat="server" Id="logout" OnClick="logout_Click"/></form></li>
-                            <%  }
-                            else
-                            { %>
-                            <li><a href="login.aspx"> Login</a></li>
-                            <li><a href="register.aspx"> REGISTER</a></li>
-                            <%  } %>
-        
-                        </ul>
-                    </div>
-
-            <div class="outer-block">
-                <h1 style="color: white">Profile Page</h1>
-                <div class="middle-block">
-                    <form action="register.aspx" method="post">
-                        <div class="container">
-                            <input type="text" placeholder="Username" name="uname" required />
-                            <input type="password" placeholder="Password" name="psw" required/>
-                            <input type="text" placeholder="First name" name="psw" required />
-                            <input type="text" placeholder="last name" name="psw" required />
-                            <input type="email" placeholder="email" name="psw" required />
-                            <input type="text" placeholder="Phone number" name="psw" required/>
-                            <input type="text" placeholder="address" name="psw" required />
-                            <button type="submit" class="button">Update</button>
-                            <button type="submit" class="button" style="background-color: #0277bd">
-                            Cancel
-                            </button>
-                            <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">Change Password</a>
-                        </div>
-                    </form>
-                </div>
+                <li><form   runat="server" method="post">
+                    <asp:Button Text="Logout" class="myButton" runat="server" Id="logout" OnClick="logout_Click"/></form></li>
+                <%  }
+                else
+                { %>
+                <li><a href="login.aspx"> Login</a></li>
+                <li><a href="register.aspx"> REGISTER</a></li>
+                <%  } %>
+                </ul>
             </div>
+            <%--<div class="h-block">--%>
+                <div class="outer-block">
+                    <h1 style="color: white;text-align:center">Profile Page</h1>
+                    <div class="middle-block">
+                        <form action="register.aspx" method="post">
+                            <div class="container" style="text-align:center">
+                                <%=GetWhileLoopData()%>
+                                <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">Change Password</a>
+                                <a href="home.aspx" class="button">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <%--<div class="outer-block">
+                    <h1 style="color: white;text-align:center">update details</h1>
+                    <div class="middle-block">
+                        <form action="register.aspx" method="post">
+                            <div class="container" style="text-align:center">
+                                <button type="submit" class="button">update</button>
+                                <button type="submit" class="button" style="background-color: #0277bd">
+                                cancel
+                                </button>
+                                <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">change password</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>--%>
         </div>
     </body>
 </html>

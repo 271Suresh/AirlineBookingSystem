@@ -72,16 +72,17 @@
             border-radius: 12px;
           }
 
-          .button {
+          .button{
             background-color: rgb(233, 55, 55);
             color: white;
-            padding: 14px 20px;
+            padding: 10px 20px;
             margin: 8px 0;
             border: none;
             cursor: pointer;
             text-decoration: none;
             border-radius: 12px;
             text-align: center;
+            font-size:15px;
           }
 
           .button:hover,
@@ -118,22 +119,36 @@
             <div class="nav-bar">
                 <h1><a href="home.aspx"> WELCOME TO FlyAIR</a></h1>
                 <ul class="menu">
-                    <li><a href="bookings.aspx"> Bookings</a></li>
-                    <li><a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
-                    <li><a href="login.aspx">LOGIN</a></li>
-                    <li><a href="register.aspx"> REGISTER</a></li>
+                <%
+                if (Session["email"]!=null)
+                {   %>
+                <li>
+                    <a href="bookings.aspx"> Bookings</a>
+                </li>
+                <li>
+                    <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                </li>
+                    
+                <li></li>
+                <%  }
+                else
+                { %>
+                <li><a href="login.aspx"> Login</a></li>
+                <li><a href="register.aspx"> REGISTER</a></li>
+                <%  } %>
                 </ul>
             </div>
             <div class="outer-block">
-                <h1 style="color: white">Reset Password</h1>
+                <h1 style="color: white">Change Password</h1>
                 <div class="middle-block">
                     <form action="#" runat="server" method="post">
                         <div class="container">
-                            <input type="text" placeholder="Email Id" name="email" required />
-                            <input type="text" placeholder="Current Password" name="curpass" required />
-                            <input type="text" placeholder="New Password" name="pwd" required />
-                            <input type="text" placeholder="Confirm Password" name="cpwd" required />
-                            <asp:Button class="button" Text="Reset" runat="server" Id="Button1" OnClick="Button1_Click"/>
+                            <%--<input type="text" placeholder="Email Id" name="email" required />--%>
+                            <input type="password" placeholder="Current Password" name="curpass" required />
+                            <input type="password" placeholder="New Password" name="pwd" required />
+                            <input type="password" placeholder="Confirm Password" name="cpwd" required />
+                            <asp:Button class="button" style="background-color: #0277bd" Text="Change Password" runat="server" Id="Button1" OnClick="Button1_Click"/>
+                            <a href="profile.aspx" class="button">Cancel</a>
                         </div>
                     </form>
                 </div>

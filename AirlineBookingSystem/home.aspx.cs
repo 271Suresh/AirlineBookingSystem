@@ -35,16 +35,10 @@ namespace AirlineBookingSystem
             string query = "Select * from flight where source='"+ from +"' and destination='"+ to +"'";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
-            //int from_to = 0;
-            //while (mydr.Read())
-            //{
-            //    if (mydr.HasRows==true)
-            //    {
-            //        from_to = 1;
-            //    }
-            //}
-            while(mydr.Read())
+            int from_to = 0;
+            while (mydr.Read())
             {
+                from_to = 1;
                 string flino1 = mydr.GetString(1);
                 string sairline1 = mydr.GetString(8);
                 string source1 = mydr.GetString(2);
@@ -56,13 +50,10 @@ namespace AirlineBookingSystem
                 htmlStr += "<tr><td>" + flino1 + "</td><td>" + sairline1 + "</td><td>" + source1 + "</td><td>" + destination1 + "</td>" +
                     "<td>" + date1 + "</td><td>" + dtime1 + "</td><td>" + atime1 + "</td><td>" + price1 + "</td>";
             }
-            //if (from_to == 1)
-            //{
-            //}
-            //else
-            //{
-            //    Response.Write("<script>alert('No Flights Available')</script>");
-            //}
+            if(from_to == 0)
+            {
+                htmlStr = "<tr><td>No Flights Available !! Select Different Route</td></tr>";
+            }
             conn.Close();
             return htmlStr;
         }
@@ -74,6 +65,11 @@ namespace AirlineBookingSystem
 
             
             
+        }
+
+        protected void dbdata_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
