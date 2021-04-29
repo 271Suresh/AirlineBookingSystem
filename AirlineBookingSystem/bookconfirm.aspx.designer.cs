@@ -33,6 +33,15 @@ namespace AirlineBookingSystem
         protected global::System.Web.UI.WebControls.Button Economic;
 
         /// <summary>
+        /// ecoremove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ecoremove;
+
+        /// <summary>
         /// FirstClass control.
         /// </summary>
         /// <remarks>
@@ -40,5 +49,32 @@ namespace AirlineBookingSystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button FirstClass;
+
+        /// <summary>
+        /// fcremove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button fcremove;
+
+        /// <summary>
+        /// business control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button business;
+
+        /// <summary>
+        /// businessremove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button businessremove;
     }
 }

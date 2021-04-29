@@ -246,7 +246,7 @@
                         </ul>
                     </div>
 
-                      
+       <form   runat="server" method="post">               
       <div class="outer-block">
         <div class="leftbox">
           <div class="ecobox">
@@ -265,10 +265,9 @@
                   </tr>
                 </tbody>
               </table>
-                <form   runat="server" method="post">
-                    <asp:Button Text="Economic" runat="server" Id="Economic" OnClick="Economic_Click"/>
-                   </form>
-              <button>add</button>
+               
+                  <asp:Button Text="Economic" runat="server" Id="Economic" OnClick="Economic_Click"/>   
+                   <asp:Button Text="remove" runat="server" Id="ecoremove" OnClick="ecoremove_Click"/>   
             </div>
           </div>
 
@@ -284,13 +283,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>33</td>
-                    <td>1111</td>
+                      <%=firstclassdata()%>
                   </tr>
                 </tbody>
               </table>
-               <asp:Button Text="FirstClass" runat="server" Id="FirstClass"/>
-              <button>add</button>
+               <asp:Button Text="FirstClass" runat="server" Id="FirstClass" OnClick="FirstClass_Click"/>
+                   <asp:Button Text="remove" runat="server" Id="fcremove" OnClick="fcremove_Click"/>   
             </div>
           </div>
 
@@ -306,15 +304,16 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>33</td>
-                    <td>1111</td>
+                      <%=businessdata()%>
                   </tr>
                 </tbody>
               </table>
-              <button>add</button>
+               <asp:Button Text="business" runat="server" Id="business" OnClick="business_Click"/>
+                   <asp:Button Text="remove" runat="server" Id="businessremove" OnClick="businessremove_Click"/>   
             </div>
           </div>
         </div>
+        </form>
         <div class="rightbox">
           <div class="topbox">
             <div class="indexname">

@@ -12,7 +12,7 @@ namespace AirlineBookingSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write(Application["flightid"]);
+           
         }
 
         protected void logout_Click(object sender, EventArgs e)
@@ -26,46 +26,18 @@ namespace AirlineBookingSystem
         {
             string session_data = ((string)Session["email"]);
             //int flight_id= int.Parse(Application["flightid"]);
-
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
-            MySqlDataReader mydr = cmdd.ExecuteReader();
-            while (mydr.Read())
-            {
-                string eseat = mydr.GetString(11);
-                string eprice = mydr.GetString(12);
-                Response.Write("seat:" +eseat);
-                Response.Write("price:"+ eprice);
-
-                
-                //conn.Close();
-                //if (pass == cpass)
-                //{
-                //    conn.Open();
-                //    cmdd = new MySqlCommand("update cust set pass='" + pass + "',cpass='" + cpass + "' where email ='" + session_data + "'", conn);
-                //    cmdd.ExecuteNonQuery();
-                //    conn.Close();
-                //    Response.Write("<script language='javascript'>window.alert('Your Password has been changed');window.location='login.aspx';</script>");
-                //}
-
-                //else
-                //{
-                //    Response.Write("<script>alert('Password Do Not Match!!')</script>");
-                //}
-            }
-            //else
-            //{
-            //    Response.Write("<script>alert('Invalid Current Password!!')</script>");
-            //}
-        }
+            MySqlCommand cmdd = new MySqlCommand("update flight set eseat=eseat-1", conn);  
+            cmdd.ExecuteNonQuery();
+            conn.Close();
+      }
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
         }
         public string economicdata()
         {
-            string session_data = ((string)Session["email"]);
             string htmstr = "";
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
@@ -73,13 +45,99 @@ namespace AirlineBookingSystem
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
-                string eseat = mydr.GetString(11);
-                string eprice = mydr.GetString(12);
-                Response.Write("seat:" + eseat);
-                Response.Write("price:" + eprice);
-                htmstr = " <td>" + eseat + "</td> < td >" + eprice + " </ td > ";
+                string eseat = mydr.GetString(12);
+                string eprice = mydr.GetString(13);
+                htmstr = "<td>" + eseat + "</td> <td>" + eprice + " </ td > ";
             }
             return htmstr;
+        }
+
+        public string firstclassdata()
+        {
+            
+            string htmstr = "";
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
+            MySqlDataReader mydr = cmdd.ExecuteReader();
+            while (mydr.Read())
+            {
+                string eseat = mydr.GetString(8);
+                string eprice = mydr.GetString(9);
+                htmstr = "<td>" + eseat + "</td> <td>" + eprice + " </ td > ";
+            }
+            return htmstr;
+        }
+
+        public string businessdata()
+        {
+            string htmstr = "";
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
+            MySqlDataReader mydr = cmdd.ExecuteReader();
+            while (mydr.Read())
+            {
+                string eseat = mydr.GetString(10);
+                string eprice = mydr.GetString(11);
+                htmstr = "<td>" + eseat + "</td> <td>" + eprice + " </ td > ";
+            }
+            return htmstr;
+        }
+
+        protected void FirstClass_Click(object sender, EventArgs e)
+        {
+            string session_data = ((string)Session["email"]);
+            //int flight_id= int.Parse(Application["flightid"]);
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("update flight set fseat=fseat-1", conn);
+            cmdd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        protected void business_Click(object sender, EventArgs e)
+        {
+            string session_data = ((string)Session["email"]);
+            //int flight_id= int.Parse(Application["flightid"]);
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("update flight set bseat=bseat-1", conn);
+            cmdd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        protected void ecoremove_Click(object sender, EventArgs e)
+        {
+            string session_data = ((string)Session["email"]);
+            //int flight_id= int.Parse(Application["flightid"]);
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("update flight set eseat=eseat+1", conn);
+            cmdd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        protected void fcremove_Click(object sender, EventArgs e)
+        {
+            string session_data = ((string)Session["email"]);
+            //int flight_id= int.Parse(Application["flightid"]);
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("update flight set fseat=fseat+1", conn);
+            cmdd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        protected void businessremove_Click(object sender, EventArgs e)
+        {
+            string session_data = ((string)Session["email"]);
+         
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("update flight set bseat=bseat+1", conn);
+            cmdd.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
