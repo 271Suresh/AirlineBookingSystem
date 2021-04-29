@@ -38,6 +38,7 @@ namespace AirlineBookingSystem
                 Response.Write("seat:" +eseat);
                 Response.Write("price:"+ eprice);
 
+                
                 //conn.Close();
                 //if (pass == cpass)
                 //{
@@ -61,6 +62,24 @@ namespace AirlineBookingSystem
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
+        }
+        public string economicdata()
+        {
+            string session_data = ((string)Session["email"]);
+            string htmstr = "";
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
+            MySqlDataReader mydr = cmdd.ExecuteReader();
+            while (mydr.Read())
+            {
+                string eseat = mydr.GetString(11);
+                string eprice = mydr.GetString(12);
+                Response.Write("seat:" + eseat);
+                Response.Write("price:" + eprice);
+                htmstr = " <td>" + eseat + "</td> < td >" + eprice + " </ td > ";
+            }
+            return htmstr;
         }
     }
 }

@@ -261,8 +261,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>33</td>
-                    <td>1111</td>
+                    <%=economicdata()%>
                   </tr>
                 </tbody>
               </table>
