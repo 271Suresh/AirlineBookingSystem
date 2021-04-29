@@ -266,7 +266,9 @@
                   </tr>
                 </tbody>
               </table>
-                <asp:Button Text="Economic" runat="server" Id="Economic" OnClick="Economic_Click"/>
+                <form   runat="server" method="post">
+                    <asp:Button Text="Economic" runat="server" Id="Economic" OnClick="Economic_Click"/>
+                   </form>
               <button>add</button>
             </div>
           </div>
@@ -333,7 +335,7 @@
               <h3>212</h3>
             </div>
           </div>
-          <button>Book flight</button>
+          <a href="payment.aspx">Book</a>
         </div>
       </div>
     </div>
