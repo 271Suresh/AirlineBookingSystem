@@ -6,25 +6,39 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
+using System.Data;
+
 namespace AirlineBookingSystem
 {
     public partial class logreg : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            string from = source1.SelectedValue;
+            string to = destination1.SelectedValue;
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            string query = "Select * from flight where source='" + from + "' and destination='" + to + "'";
+            MySqlCommand cmdd = new MySqlCommand(query, conn);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmdd);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
         }
 
-        protected void apidata_Click(object sender, EventArgs e)
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            var client = new RestClient("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/SFO-sky/JFK-sky/2021-06-12?inboundpartialdate=2019-12-01");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("x-rapidapi-key", "100aee3d20msh6de230251b45d00p1e0503jsnf0e186ce0144");
-            request.AddHeader("x-rapidapi-host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com");
-            IRestResponse response = client.Execute(request);
-            Response.Write(response.Content);
+           GridViewRow row= GridView1.SelectedRow;
+            Application["flightid"] = row.Cells[1].Text;
+            Response.Redirect("bookconfirm.aspx");
+        }
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            /* Verifies that the control is rendered */
         }
 
+ 
         public string GetWhileLoopData()
         {
             string from = source1.SelectedValue;

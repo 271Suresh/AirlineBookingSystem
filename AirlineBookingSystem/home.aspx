@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="AirlineBookingSystem.logreg" %>
+﻿<%@ Page EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="AirlineBookingSystem.logreg" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -342,9 +342,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%=GetWhileLoopData()%>
+                           <asp:GridView ID="GridView1" 
+                                  runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" 
+                                  autogenerateselectbutton="True"
+                                  OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" 
+                                   DataKeyNames="fid"
+                                 >
+                            </asp:GridView>
                         </tbody>
                     </table>
+                  
+                  
                 </div>
             </div>
             </div>

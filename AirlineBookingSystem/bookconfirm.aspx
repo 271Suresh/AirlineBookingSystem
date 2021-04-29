@@ -245,6 +245,8 @@
         
                         </ul>
                     </div>
+
+                      
       <div class="outer-block">
         <div class="leftbox">
           <div class="ecobox">
@@ -264,6 +266,7 @@
                   </tr>
                 </tbody>
               </table>
+                <asp:Button Text="Economic" runat="server" Id="Economic" OnClick="Economic_Click"/>
               <button>add</button>
             </div>
           </div>
@@ -285,6 +288,7 @@
                   </tr>
                 </tbody>
               </table>
+               <asp:Button Text="FirstClass" runat="server" Id="FirstClass"/>
               <button>add</button>
             </div>
           </div>

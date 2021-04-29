@@ -11,7 +11,7 @@ namespace AirlineBookingSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Write(Application["flightid"]);
         }
 
         protected void logout_Click(object sender, EventArgs e)
@@ -19,6 +19,11 @@ namespace AirlineBookingSystem
 
             Session.Abandon();
             Session.Clear();
+        }
+
+        protected void Economic_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
