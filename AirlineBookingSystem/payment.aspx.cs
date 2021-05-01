@@ -13,10 +13,15 @@ namespace AirlineBookingSystem
         {
 
         }
-        protected void logout_Click(object sender, EventArgs e)
+        //protected void logout_Click(object sender, EventArgs e)
+        //{
+        //    Session.Abandon();
+        //    Session.Clear();
+        //}
+
+        protected void button_Click(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Session.Clear();
+
         }
     }
 }

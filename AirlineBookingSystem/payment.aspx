@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="payment.aspx.cs" Inherits="AirlineBookingSystem.payment" %>
 
 <!DOCTYPE html>
-
-
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>Home page</title>
@@ -68,7 +65,9 @@
 
           input[type="text"],
           input[type="email"],
-          input[type="password"] {
+          input[type="password"],
+          select,
+          option {
             padding: 10px 20px;
             margin: 8px 0;
             border: 1px solid #ccc;
@@ -150,6 +149,56 @@
             }
             
         </style>
+        <script>
+          function fName() {
+              var x = /^[A-Za-z]/;
+              var no = document.forms[0].firstname.value
+              if (!no.match(x)) {
+                  alert('invalid First Name');
+                  return false;
+              }
+              return true;
+          }
+          function zipCode(){
+              var x = /^\d{6}$/;
+              var no = document.forms[0].zip.value
+              if (!no.match(x))
+          {
+            alert('invalid Zip code');
+            return false;
+          }
+          return true;
+          }
+          function cName() {
+              var x = /^[A-Za-z]/;
+              var no = document.forms[0].cardname.value
+              if (!no.match(x)) {
+                  alert('invalid Card Name');
+                  return false;
+              }
+              return true;
+          }
+          function cNumber(){
+              var x = /^\d{16}$/;
+              var no = document.forms[0].cardnumber.value
+              if (!no.match(x))
+          {
+            alert('invalid card number');
+            return false;
+          }
+          return true;
+          }
+          function cvvCode(){
+              var x = /^\d{3}$/;
+              var no = document.forms[0].cvv.value
+              if (!no.match(x))
+          {
+            alert('invalid CVV code');
+            return false;
+          }
+          return true;
+          }
+        </script>
     </head>
     <body>
         <div class="fl">
@@ -179,26 +228,26 @@
             <div class="h-block">
                 <div class="outer-block">
                     <h1 style="color: white;text-align:center">Traveller Info & Payment</h1>
-                    <form action="register.aspx" method="post">
+                    <form runat="server" method="post" onsubmit="return !!(fName() & zipCode() & cName() & cNumber() & cvvCode());">
                         <div class="h-block" >
                             <div class="middle-block">
                                 <h3>Passengers Details</h3>
                                 <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                <input type="text" id="fname" name="firstname" placeholder="Name" required/>
+                                <input type="text" name="firstname" placeholder="Name" required/>
                                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                <input type="text" id="email" name="email" placeholder="john@example.com" required/>
+                                <input type="email" name="email" placeholder="john@example.com" required/>
                                 <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                                <input type="text" id="adr" name="address" placeholder="Area-Street" required/>
+                                <input type="text" name="address" placeholder="Area-Street" required/>
                                 <label for="city"><i class="fa fa-institution"></i> City</label>
-                                <input type="text" id="city" name="city" placeholder="Pune" required/>
+                                <input type="text" name="city" placeholder="Pune" required/>
                                 <div class="h-block">
                                     <div class="middle-block">
                                         <label for="state">State</label>
-                                        <input type="text" id="state" name="state" placeholder="Maharastra" required/>
+                                        <input type="text" name="state" placeholder="Maharastra" required/>
                                     </div>
                                     <div class="middle-block">  
                                         <label for="zip">Zip</label>
-                                        <input type="text" id="zip" name="zip" placeholder="10001" required/>
+                                        <input type="text" name="zip" placeholder="100001" required/>
                                     </div>
                                 </div>
                             </div>
@@ -208,25 +257,53 @@
                                 <h3>Payment</h3>
                                     
                                 <label for="cname">Card Holder Name</label>
-                                <input type="text" id="cname" name="cardname" placeholder="Card Holder" required/>
+                                <input type="text" name="cardname" placeholder="Card Holder" required/>
                                 <label for="ccnum">Credit card number</label>
-                                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required/>
+                                <input type="text" name="cardnumber" placeholder="1111-2222-3333-4444" required/>
                                 <label for="expmonth">Exp Month</label>
-                                <input type="text" id="expmonth" name="expmonth" placeholder="September" required/>
+                                <select name="expmonth" required>
+                                  <option value="">Select Exp Month</option>
+                                  <option value="Jan">Jan</option>
+                                  <option value="Feb">Feb</option>
+                                  <option value="Mar">Mar</option>
+                                  <option value="Apr">Apr</option>
+                                  <option value="May">May</option>
+                                  <option value="Jun">Jun</option>
+                                  <option value="Jul">Jul</option>
+                                  <option value="Aug">Aug</option>
+                                  <option value="Sep">Sep</option>
+                                  <option value="Oct">Oct</option>
+                                  <option value="Nov">Nov</option>
+                                  <option value="Dec">Dec</option>
+                                </select>
                                 <div class="h-block">
                                     <div class="middle-block">
                                         <label for="expyear">Exp Year</label>
-                                        <input type="text" id="expyear" name="expyear" placeholder="2021" required/>
+                                        <select name="expyear" required>
+                                          <option value="">Select Exp Year</option>
+                                          <option value="2021">2021</option>
+                                          <option value="2022">2022</option>
+                                          <option value="2023">2023</option>
+                                          <option value="2024">2024</option>
+                                          <option value="2025">2025</option>
+                                          <option value="2026">2026</option>
+                                          <option value="2027">2027</option>
+                                          <option value="2028">2028</option>
+                                          <option value="2029">2029</option>
+                                          <option value="2030">2030</option>
+                                          
+                                        </select>
                                     </div>
                                     <div class="middle-block"> 
                                         <label for="cvv">CVV</label>
-                                        <input type="text" id="cvv" name="cvv" placeholder="352" required/>
+                                        <input type="text" name="cvv" placeholder="352" required/>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <asp:Button class="button" Text="Make Payment" runat="server" style="background-color: #0277bd" id="button" OnClick="button_Click"/>
                     </form>
-                    <a href="" class="button" style="background-color: #0277bd">Make Payment</a>
+                    <!-- <a href="" class="button" style="background-color: #0277bd">Make Payment</a> -->
                     <a href="home.aspx" class="button">Cancel</a>
                 </div>
                 <div class="cart-block">
