@@ -29,7 +29,7 @@ namespace AirlineBookingSystem
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-           GridViewRow row= GridView1.SelectedRow;
+            GridViewRow row= GridView1.SelectedRow;
             Application["flightid"] = row.Cells[1].Text;
             Response.Redirect("bookconfirm.aspx");
         }

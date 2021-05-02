@@ -10,6 +10,7 @@ namespace AirlineBookingSystem
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -25,13 +26,13 @@ namespace AirlineBookingSystem
         protected void Economic_Click(object sender, EventArgs e)
         {
             string session_data = ((string)Session["email"]);
-            //int flight_id= int.Parse(Application["flightid"]);
+            int fid= int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("update flight set eseat=eseat-1", conn);  
+            MySqlCommand cmdd = new MySqlCommand("update flight set eseat=eseat-1 where fid="+fid, conn);  
             cmdd.ExecuteNonQuery();
             conn.Close();
-      }
+        }
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
@@ -39,9 +40,11 @@ namespace AirlineBookingSystem
         public string economicdata()
         {
             string htmstr = "";
+
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
+            MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid="+fid, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
@@ -56,9 +59,10 @@ namespace AirlineBookingSystem
         {
             
             string htmstr = "";
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
+            MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid=" + fid, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
@@ -69,12 +73,24 @@ namespace AirlineBookingSystem
             return htmstr;
         }
 
+        protected void FirstClass_Click(object sender, EventArgs e)
+        {
+            string session_data = ((string)Session["email"]);
+            int fid = int.Parse(Application["flightid"].ToString());
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            MySqlCommand cmdd = new MySqlCommand("update flight set fseat=fseat-1 where fid="+fid, conn);
+            cmdd.ExecuteNonQuery();
+            conn.Close();
+        }
+
         public string businessdata()
         {
             string htmstr = "";
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("Select * from flight", conn);
+            MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid="+fid, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
@@ -85,24 +101,13 @@ namespace AirlineBookingSystem
             return htmstr;
         }
 
-        protected void FirstClass_Click(object sender, EventArgs e)
-        {
-            string session_data = ((string)Session["email"]);
-            //int flight_id= int.Parse(Application["flightid"]);
-            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("update flight set fseat=fseat-1", conn);
-            cmdd.ExecuteNonQuery();
-            conn.Close();
-        }
-
         protected void business_Click(object sender, EventArgs e)
         {
             string session_data = ((string)Session["email"]);
-            //int flight_id= int.Parse(Application["flightid"]);
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("update flight set bseat=bseat-1", conn);
+            MySqlCommand cmdd = new MySqlCommand("update flight set bseat=bseat-1 where fid="+fid, conn);
             cmdd.ExecuteNonQuery();
             conn.Close();
         }
@@ -110,10 +115,10 @@ namespace AirlineBookingSystem
         protected void ecoremove_Click(object sender, EventArgs e)
         {
             string session_data = ((string)Session["email"]);
-            //int flight_id= int.Parse(Application["flightid"]);
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("update flight set eseat=eseat+1", conn);
+            MySqlCommand cmdd = new MySqlCommand("update flight set eseat=eseat+1 where fid="+fid, conn);
             cmdd.ExecuteNonQuery();
             conn.Close();
         }
@@ -121,10 +126,10 @@ namespace AirlineBookingSystem
         protected void fcremove_Click(object sender, EventArgs e)
         {
             string session_data = ((string)Session["email"]);
-            //int flight_id= int.Parse(Application["flightid"]);
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("update flight set fseat=fseat+1", conn);
+            MySqlCommand cmdd = new MySqlCommand("update flight set fseat=fseat+1 where fid="+fid, conn);
             cmdd.ExecuteNonQuery();
             conn.Close();
         }
@@ -132,12 +137,13 @@ namespace AirlineBookingSystem
         protected void businessremove_Click(object sender, EventArgs e)
         {
             string session_data = ((string)Session["email"]);
-         
+            int fid = int.Parse(Application["flightid"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("update flight set bseat=bseat+1", conn);
+            MySqlCommand cmdd = new MySqlCommand("update flight set bseat=bseat+1 where fid="+fid, conn);
             cmdd.ExecuteNonQuery();
             conn.Close();
         }
+        
     }
 }

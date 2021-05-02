@@ -319,18 +319,18 @@
             <div class="indexname">
               <h4>Username</h4>
               <h4>flight name</h4>
-              <h4>Economy</h4>
-              <h4>business</h4>
-              <h4>first class</h4>
+              <h4>Economy class</h4>
+              <h4>Business class</h4>
+              <h4>First class</h4>
               <h3>Total Amount</h3>
             </div>
             <div class="value">
-              <h4>Pranath naik</h4>
+             <%-- <h4>Pranath naik</h4>
               <h4>Air asia</h4>
               <h4>0</h4>
               <h4>1</h4>
               <h4>2</h4>
-              <h3>212</h3>
+              <h3>212</h3>--%>
             </div>
           </div>
           <a href="payment.aspx">Book</a>
