@@ -15,66 +15,75 @@ namespace AirlineBookingSystem
     {
 
         /// <summary>
-        /// logout control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logout;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Economic control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Economic;
+        protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// ecoremove control.
+        /// Button5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ecoremove;
+        protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
-        /// FirstClass control.
+        /// Button6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FirstClass;
+        protected global::System.Web.UI.WebControls.Button Button6;
 
         /// <summary>
-        /// fcremove control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button fcremove;
+        protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
-        /// business control.
+        /// Button4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button business;
+        protected global::System.Web.UI.WebControls.Button Button4;
 
         /// <summary>
-        /// businessremove control.
+        /// Button7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button businessremove;
+        protected global::System.Web.UI.WebControls.Button Button7;
+
+        /// <summary>
+        /// Book control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Book;
     }
 }

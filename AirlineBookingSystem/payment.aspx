@@ -216,7 +216,7 @@
                 </li>
                     
                 <li><form   runat="server" method="post">
-                    <asp:Button Text="Logout" class="myButton" runat="server" Id="logout" OnClick="logout_Click"/></form></li>
+                    <asp:Button Text="Logout" class="myButton" runat="server" Id="logout"/></form></li>
                 <%  }
                 else
                 { %>

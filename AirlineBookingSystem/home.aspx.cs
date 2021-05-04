@@ -25,12 +25,14 @@ namespace AirlineBookingSystem
             sda.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
+            
         }
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
             GridViewRow row= GridView1.SelectedRow;
             Application["flightid"] = row.Cells[1].Text;
+            Application["flightname"] = row.Cells[8].Text;
             Response.Redirect("bookconfirm.aspx");
         }
         public override void VerifyRenderingInServerForm(Control control)

@@ -17,13 +17,12 @@ namespace AirlineBookingSystem
 
         protected void button_Click(object sender, EventArgs e)
         {
-
             string email = Request.Form.Get("uname");
             string pass = Request.Form.Get("pwd");
 
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            string query = "Select email,pass from cust";
+            string query = "Select custid,email,pass from cust";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
             int email_flag = 0;
@@ -32,6 +31,7 @@ namespace AirlineBookingSystem
                 if (email.Equals(mydr["email"].ToString()) && pass.Equals(mydr["pass"]))
                 {
                     email_flag = 1;
+                    Session["custid"] = mydr["custid"].ToString();
                 }
             }
 
