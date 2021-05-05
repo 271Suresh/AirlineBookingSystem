@@ -70,7 +70,19 @@
             border-radius: 12px;
           }
 
-          button {
+          .buttonb {
+            background-color:#32CD32;
+            color: white;
+            padding: 14px 20px;
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 12px;
+            text-align: center;
+          }
+
+          .buttonc {
             background-color: rgb(233, 55, 55);
             color: white;
             padding: 14px 20px;
@@ -152,47 +164,61 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            margin-right:3rem;
           }
 
           /* table */
-           table.purpleHorizon {
-            background-color: none;
-            width: 350px;
-            text-align: left;
-            border-collapse: collapse;
-          }
-          table.purpleHorizon td,
-          table.purpleHorizon th {
-            border: 1px solid #555555;
-            padding: 10px 0px;
-          }
-          table.purpleHorizon tbody td {
-            font-weight: bold;
-            color: #ffffff;
-          }
-          table.purpleHorizon tr:nth-child(even) {
-            background: #cc3bfc;
-          }
+            table {
+          border-spacing: 1;
+          border-collapse: collapse;
+          background: white;
+          border-radius: 6px;
+          overflow: hidden;
+          max-width: 800px;
+          width: 100%;
+          margin: 0 auto;
+          position: relative;
+        }
+        table * {
+          position: relative;
+        }
+        table td,
+        table th {
+          padding-left: 8px;
+        }
+        table thead tr {
+          height: 60px;
+          background: #3388BE;
+          font-size: 16px;
+          color:white;
+        }
+        table tbody tr {
+          height: 48px;
+          border-bottom: 1px solid #e3f1d5;
+        }
+        table tbody tr:last-child {
+          border: 0;
+        }
+        table td,
+        table th {
+          text-align: left;
+        }
+        table td.l,
+        table th.l {
+          text-align: right;
+        }
+        table td.c,
+        table th.c {
+          text-align: center;
+        }
+        table td.r,
+        table th.r {
+          text-align: center;
+        }
 
-          table.purpleHorizon thead th {
-            font-size: 19px;
-            font-weight: bold;
-          color: black;
-            text-align: left;
-          }
-          table.purpleHorizon thead th:first-child {
-            border-left: none;
-          }
+       /*tablebutton*/  
 
-          table.purpleHorizon tfoot {
-            font-size: 13px;
-            font-weight: bold;
-            color: #ffffff;
-            border-top: 5px solid #792396;
-          }
-          table.purpleHorizon tfoot td {
-            font-size: 13px;
-          }
+   
           .boxbut {
             display: flex;
             justify-content: space-evenly;
@@ -243,13 +269,14 @@
                         <%  } %>
                     </ul>
             </div>
+            <form runat="server" method="post">       
             <div class="outer-block">
-                <form runat="server" method="post">               
-                    <div class="leftbox">
+                  <div class="leftbox">
+                      
                         <div class="ecobox">
-                            <div class="type">Economic</div>
+                            
                             <div class="boxbut">
-                                <table class="purpleHorizon">
+                                <table >
                                     <thead>
                                         <tr>
                                             <th>Seat_Type</th>
@@ -262,30 +289,30 @@
                                         <tr>
                                             <td>Economic class</td>
                                             <%=econnomicdata()%>
-                                            <td><asp:Button Text="Economic" runat="server" Id="Button1" OnClick="Economic_Click"/></td>
-                                            <td><asp:Button Text="remove" runat="server" Id="Button2" OnClick="ecoremove_Click"/></td>
+                                            <td><asp:Button Text="Economic" runat="server" class="buttonb" Id="Button1" OnClick="Economic_Click"/></td>
+                                            <td><asp:Button Text="remove" runat="server" class="buttonc" Id="Button2" OnClick="ecoremove_Click"/></td>
                                         </tr>
                                         <tr>
                                             <td>Business class</td>
                                             <%=businessdata()%>
-                                            <td><asp:Button Text="business" runat="server" Id="Button5" OnClick="business_Click"/></td>
-                                            <td><asp:Button Text="remove" runat="server" Id="Button6" OnClick="businessremove_Click"/></td>
+                                            <td><asp:Button Text="business" runat="server" class="buttonb" Id="Button5" OnClick="business_Click"/></td>
+                                            <td><asp:Button Text="remove" runat="server" class="buttonc" Id="Button6" OnClick="businessremove_Click"/></td>
                                         </tr>
                                         <tr>
                                             <td>First class</td>
                                             <%=firstdata()%>
-                                            <td><asp:Button Text="FirstClass" runat="server" Id="Button3" OnClick="FirstClass_Click"/></td>
-                                            <td><asp:Button Text="remove" runat="server" Id="Button4" OnClick="fcremove_Click"/></td>
+                                            <td><asp:Button Text="FirstClass" runat="server" class="buttonb" Id="Button3" OnClick="FirstClass_Click"/></td>
+                                            <td><asp:Button Text="remove" runat="server" class="buttonc" Id="Button4" OnClick="fcremove_Click"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                               
                             </div>
                         </div>
+                   
                     </div>
-                    <asp:Button Text="Book" runat="server" Id="Button7" OnClick="Book_Click"/>
-                    <asp:Button Text="Cancel" runat="server" Id="Book" OnClick="Book_Click"/>
-                </form>
-                <div class="rightbox">
+                    
+                 <div class="rightbox">
                     <div class="topbox">
                         <div class="indexname">
                             <h4>Email</h4>
@@ -299,9 +326,11 @@
                             <%=cartdata()%>
                         </div>
                     </div>
-                    
+                       <asp:Button Text="Book" class="buttonb" runat="server" Id="Button7" OnClick="Book_Click"/>
+                       <asp:Button Text="Cancel" class="buttonc" runat="server" Id="Book" OnClick="Book_Click"/>
                 </div>
+               </div>
+                </form>
             </div>
-        </div>
     </body>  
 </html>
