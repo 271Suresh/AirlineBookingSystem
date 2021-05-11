@@ -33,6 +33,9 @@ namespace AirlineBookingSystem
             GridViewRow row= GridView1.SelectedRow;
             Application["flightid"] = row.Cells[1].Text;
             Application["flightname"] = row.Cells[8].Text;
+            Application["eseat"] = row.Cells[13].Text;
+            Application["bseat"] = row.Cells[11].Text;
+            Application["fseat"] = row.Cells[9].Text;
             Response.Redirect("bookconfirm.aspx");
         }
         public override void VerifyRenderingInServerForm(Control control)

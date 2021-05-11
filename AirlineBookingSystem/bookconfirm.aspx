@@ -279,7 +279,8 @@
                                 <table >
                                     <thead>
                                         <tr>
-                                            <th>Seat_Type</th>
+                                            <th>Seat Type</th>
+                                            <th>Seat Available</th>
                                             <th>Price</th>
                                             <th>add flight</th>
                                             <th>remove flight</th>
@@ -327,7 +328,7 @@
                         </div>
                     </div>
                        <asp:Button Text="Book" class="buttonb" runat="server" Id="Button7" OnClick="Book_Click"/>
-                       <asp:Button Text="Cancel" class="buttonc" runat="server" Id="Book" OnClick="Book_Click"/>
+                       <asp:Button Text="Cancel" class="buttonc" runat="server" Id="Cancel" OnClick="Cancel_Click"/>
                 </div>
                </div>
                 </form>

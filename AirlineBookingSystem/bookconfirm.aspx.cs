@@ -14,11 +14,10 @@ namespace AirlineBookingSystem
         {
             /* Verifies that the control is rendered */
         }
-
-
+        //private static int eseat_avail;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            
         }
 
         protected void logout_Click(object sender, EventArgs e)
@@ -27,28 +26,31 @@ namespace AirlineBookingSystem
             Session.Abandon();
             Session.Clear();
         }
-
-
-        
+       
         public string econnomicdata()
         {
             string htmstr = "";
             int fid = int.Parse(Application["flightid"].ToString());
+            int eseat_avail = int.Parse(Application["eseat"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
             MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid="+fid, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
+            //int eseat = 0;
             while (mydr.Read())
             {
                 string eprice = mydr.GetString(13);
-                htmstr = "<td>" + eprice + "</td>";
+                htmstr = "<td>" + eseat_avail + "</td><td>" + eprice + "</td>";
             }
+            //eseat_avail = eseat;
             return htmstr;
         }
+
         public string businessdata()
         {
             string htmstr = "";
             int fid = int.Parse(Application["flightid"].ToString());
+            int bseat_avail = int.Parse(Application["bseat"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
             MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid=" + fid, conn);
@@ -56,7 +58,7 @@ namespace AirlineBookingSystem
             while (mydr.Read())
             {
                 string bprice = mydr.GetString(11);
-                htmstr = "<td>" + bprice + " </ td > ";
+                htmstr = "<td>" + bseat_avail + "</td><td>" + bprice + " </ td > ";
             }
             return htmstr;
         }
@@ -64,6 +66,7 @@ namespace AirlineBookingSystem
         {
             string htmstr = "";
             int fid = int.Parse(Application["flightid"].ToString());
+            int fseat_avail = int.Parse(Application["fseat"].ToString());
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
             MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid=" + fid, conn);
@@ -71,7 +74,7 @@ namespace AirlineBookingSystem
             while (mydr.Read())
             {
                 string fprice = mydr.GetString(9);
-                htmstr = "<td>" + fprice + " </ td > ";
+                htmstr = "<td>" + fseat_avail + "</td><td>" + fprice + " </ td > ";
             }
             return htmstr;
         }
@@ -79,41 +82,97 @@ namespace AirlineBookingSystem
         private static int ecount;
         protected void Economic_Click(object sender, EventArgs e)
         {
-            ecount++;
-            //Response.Write("Economic seat:"+ecount);
+            int eseat_avail = int.Parse(Application["eseat"].ToString());
+            if (eseat_avail <= 0)
+            {
+                Response.Write("<script>alert('Economic Class Bookings Are Full!!')</script>");
+                return;
+            }
+            else
+            {
+                ecount++;
+                Application["eseat"] = eseat_avail - 1;
+            }
         }
-        
+
         private static int bcount;
         protected void business_Click(object sender, EventArgs e)
         {
-            bcount++;
-            //Response.Write(bcount);
+            int bseat_avail = int.Parse(Application["bseat"].ToString());
+            if (bseat_avail <= 0)
+            {
+                Response.Write("<script>alert('Business Class Bookings Are Full!!')</script>");
+                return;
+            }
+            else
+            {
+                bcount++;
+                Application["bseat"] = bseat_avail - 1;
+            }
         }
 
         private static int fcount;
         protected void FirstClass_Click(object sender, EventArgs e)
         {
-            fcount++;
-            //Response.Write(fcount);
+            int fseat_avail = int.Parse(Application["fseat"].ToString());
+            if (fseat_avail <= 0)
+            {
+                Response.Write("<script>alert('Bookings Are Full!!')</script>");
+                return;
+            }
+            else
+            {
+                fcount++;
+                Application["fseat"] = fseat_avail - 1;
+            }
         }
 
         protected void ecoremove_Click(object sender, EventArgs e)
         {
             ecount--;
-            //Response.Write(ecount);
+            if(ecount < 0)
+            {
+                Response.Write("<script>alert('Select seats')</script>");
+                ecount = 0;
+            }
+            else
+            {
+                int eseat_avail = int.Parse(Application["eseat"].ToString());
+                Application["eseat"] = eseat_avail + 1;
+                
+            }
         }
+
         protected void businessremove_Click(object sender, EventArgs e)
         {
             bcount--;
-            //Response.Write(bcount);
+            if (bcount < 0)
+            {
+                Response.Write("<script>alert('Select seats')</script>");
+                bcount = 0;
+            }
+            else
+            {
+                int bseat_avail = int.Parse(Application["bseat"].ToString());
+                Application["bseat"] = bseat_avail + 1;
+
+            }
         }
         protected void fcremove_Click(object sender, EventArgs e)
         {
             fcount--;
-            //Response.Write(fcount);
-        }
+            if (fcount < 0)
+            {
+                Response.Write("<script>alert('Select seats')</script>");
+                fcount = 0;
+            }
+            else
+            {
+                int fseat_avail = int.Parse(Application["fseat"].ToString());
+                Application["fseat"] = fseat_avail + 1;
 
-        
+            }
+        }
         public string cartdata()
         {
             string htmstr = "";
@@ -135,37 +194,55 @@ namespace AirlineBookingSystem
         }
         protected void Book_Click(object sender, EventArgs e)
         {
-            string custid = ((string)Session["custid"]);
-            int fid = int.Parse(Application["flightid"].ToString());
-            DateTime today = DateTime.Today;
-            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            conn.Open();
-            MySqlCommand cmdd = new MySqlCommand("select * from flight where fid=" + fid, conn);
-            MySqlDataReader mydr = cmdd.ExecuteReader();
-            while (mydr.Read())
+            if (ecount == 0 
+                && bcount == 0
+                && fcount == 0)
             {
+                Response.Write("<script>alert('You have not booked any seats')</script>");
+            }
+            else
+            {
+                string custid = ((string)Session["custid"]);
+                int fid = int.Parse(Application["flightid"].ToString());
+                DateTime today = DateTime.Today;
+                MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+                conn.Open();
+                MySqlCommand cmdd = new MySqlCommand("select * from flight where fid=" + fid, conn);
+                MySqlDataReader mydr = cmdd.ExecuteReader();
+                mydr.Read();
                 int eprice = int.Parse(mydr.GetString(13).ToString());
                 int bprice = int.Parse(mydr.GetString(11).ToString());
                 int fprice = int.Parse(mydr.GetString(9).ToString());
-                int tamount = eprice * ecount + bprice * bcount + fprice * fcount;
-                MySqlConnection con = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into flyair.booking(custid,fid,eseat,eprice,bseat,bprice,fseat,fprice,tamount,bdate)values(@a1,@a2,@a3,@a4,@a5,@a6,@a7,@a8,@a9,@a10)", con);
-                cmd.Parameters.AddWithValue("@a1", custid);
-                cmd.Parameters.AddWithValue("@a2", fid);
-                cmd.Parameters.AddWithValue("@a3", ecount);
-                cmd.Parameters.AddWithValue("@a4", eprice);
-                cmd.Parameters.AddWithValue("@a5", bcount);
-                cmd.Parameters.AddWithValue("@a6", bprice);
-                cmd.Parameters.AddWithValue("@a7", fcount);
-                cmd.Parameters.AddWithValue("@a8", fprice);
-                cmd.Parameters.AddWithValue("@a9", tamount);
-                cmd.Parameters.AddWithValue("@a10", today);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                int ecoprice = eprice * ecount;
+                int busiprice = bprice * bcount;
+                int firstprice = fprice * fcount;
+                Response.Write(ecoprice);
+                Response.Write(busiprice);
+                Response.Write(firstprice);
+                int tamount = ecoprice + busiprice + firstprice ;
+                int nop = ecount + bcount + fcount;
+                Application["custid"] = custid;
+                Application["fid"] = fid;
+                Application["ecount"] = ecount;
+                Application["eprice"] = eprice;
+                Application["bcount"] = bcount;
+                Application["bprice"] = bprice;
+                Application["fcount"] = fcount;
+                Application["fprice"] = fprice;
+                Application["tamount"] = tamount;
+                Application["nop"] = nop;
+                Application["ecoprice"] = ecoprice;
+                Application["busiprice"] = busiprice;
+                Application["firstprice"] = firstprice;
+                Application["today"] = today;
+                Response.Redirect("payment.aspx");
+                conn.Close();
             }
-            conn.Close();
+        }
 
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("home.aspx");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="payment.aspx.cs" Inherits="AirlineBookingSystem.payment" %>
+﻿<%@ Page EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="payment.aspx.cs" Inherits="AirlineBookingSystem.payment" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -66,6 +66,7 @@
           input[type="text"],
           input[type="email"],
           input[type="password"],
+          input[type="Date"],
           select,
           option {
             padding: 10px 20px;
@@ -118,7 +119,7 @@
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             width: 25%;
-            height: 30vh;
+            height: 60vh;
             margin: auto;
             margin-top: 3rem;
             padding: 3rem;
@@ -147,57 +148,75 @@
                 padding-top: 30px;
                 padding-bottom: 30px;
             }
+          h4,
+          h3 {
+            padding: 10px;
+          }
+
+          .topbox {
+            display: flex;
+            justify-content: space-between;
+          }
             
         </style>
         <script>
-          function fName() {
-              var x = /^[A-Za-z]/;
-              var no = document.forms[0].firstname.value
-              if (!no.match(x)) {
-                  alert('invalid First Name');
-                  return false;
-              }
-              return true;
-          }
-          function zipCode(){
-              var x = /^\d{6}$/;
-              var no = document.forms[0].zip.value
-              if (!no.match(x))
-          {
+            function fName() {
+                var x = /^[A-Za-z]/;
+                var no = document.forms[0].fullname.value
+                if (!no.match(x)){
+                    alert('invalid First Name');
+                    return false;
+                }
+                return true;
+            }
+            function mobileno() {
+                var x = /^\d{10}$/;
+                var no = document.forms[0].mob.value
+                if (!no.match(x)) {
+                    alert('invalid Contact number');
+                    return false;
+                }
+                return true;
+            }
+            function zipCode(){
+                var x = /^\d{6}$/;
+                var no = document.forms[0].zip.value
+                if (!no.match(x))
+            {
             alert('invalid Zip code');
             return false;
-          }
-          return true;
-          }
-          function cName() {
-              var x = /^[A-Za-z]/;
-              var no = document.forms[0].cardname.value
-              if (!no.match(x)) {
-                  alert('invalid Card Name');
-                  return false;
-              }
-              return true;
-          }
-          function cNumber(){
-              var x = /^\d{16}$/;
-              var no = document.forms[0].cardnumber.value
-              if (!no.match(x))
-          {
+            }
+            return true;
+            }
+            function cName() {
+                var x = /^[A-Za-z]/;
+                var no = document.forms[0].cardname.value
+                if (!no.match(x)) {
+                    alert('invalid Card Name');
+                    return false;
+                }
+                return true;
+            }
+            function cNumber(){
+                var x = /^\d{16}$/;
+                var no = document.forms[0].cardnumber.value
+                if (!no.match(x))
+            {
             alert('invalid card number');
             return false;
-          }
-          return true;
-          }
-          function cvvCode(){
-              var x = /^\d{3}$/;
-              var no = document.forms[0].cvv.value
-              if (!no.match(x))
-          {
+            }
+            return true;
+            }
+            function cvvCode(){
+                var x = /^\d{3}$/;
+                var no = document.forms[0].cvv.value
+                if (!no.match(x))
+            {
             alert('invalid CVV code');
             return false;
-          }
-          return true;
-          }
+            }
+            return true;
+            }
         </script>
     </head>
     <body>
@@ -215,8 +234,7 @@
                     <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
                 </li>
                     
-                <li><form   runat="server" method="post">
-                    <asp:Button Text="Logout" class="myButton" runat="server" Id="logout"/></form></li>
+                <li><a href="home.aspx" class="myButton">Cancel Booking</a></li>
                 <%  }
                 else
                 { %>
@@ -228,22 +246,44 @@
             <div class="h-block">
                 <div class="outer-block">
                     <h1 style="color: white;text-align:center">Traveller Info & Payment</h1>
-                    <form runat="server" method="post" onsubmit="return !!(fName() & zipCode() & cName() & cNumber() & cvvCode());">
+                    <form runat="server" method="post" onsubmit="return !!(fName() & mobileno() & zipCode() & cName() & cNumber() & cvvCode());">
                         <div class="h-block" >
                             <div class="middle-block">
                                 <h3>Passengers Details</h3>
                                 <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                <input type="text" name="firstname" placeholder="Name" required/>
+                                <input type="text" name="fullname" placeholder="Name" required/>
+                                <label for="dob">DOB</label>
+                                <input type="Date" name="dob" placeholder="DOB" required/>
+                                <label for="mb">Contact No.</label>
+                                <input type="text" name="mob" placeholder="Contact No" required/>
                                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
                                 <input type="email" name="email" placeholder="john@example.com" required/>
-                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                                <input type="text" name="address" placeholder="Area-Street" required/>
-                                <label for="city"><i class="fa fa-institution"></i> City</label>
-                                <input type="text" name="city" placeholder="Pune" required/>
+                                
+                                
                                 <div class="h-block">
                                     <div class="middle-block">
                                         <label for="state">State</label>
-                                        <input type="text" name="state" placeholder="Maharastra" required/>
+                                        <select name="state" required>
+                                            <option value="">Select States</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Bihar">Bihar</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Odisha">Odisha</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="Uttarakhand">Uttarakhand</option>
+                                            <option value="West Bengal">West Bengal</option>
+                                        </select>
                                     </div>
                                     <div class="middle-block">  
                                         <label for="zip">Zip</label>
@@ -302,12 +342,29 @@
                             </div>
                         </div>
                         <asp:Button class="button" Text="Make Payment" runat="server" style="background-color: #0277bd" id="button" OnClick="button_Click"/>
+                       <%-- <a href="home.aspx" class="button">Cancel</a>--%>
                     </form>
                     <!-- <a href="" class="button" style="background-color: #0277bd">Make Payment</a> -->
                     <a href="home.aspx" class="button">Cancel</a>
                 </div>
                 <div class="cart-block">
-                    <h1 style="color: white;text-align:center">Fare</h1>
+                    <h1 style="color: white;text-align:center">Seat & Fare</h1>
+                    <div class="topbox">
+                        <div class="indexname">
+                            <h4>Economic Class</h4>
+                            <h4>Economic Fare</h4>
+                            <h4>Business class</h4>
+                            <h4>Business Fare</h4>
+                            <h4>First class</h4>
+                            <h4>First Fare</h4>
+                            <hr />
+                            <h3>Total Fare</h3>
+                        </div>
+                        <div class="value">
+                            <%=seatData()%>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
