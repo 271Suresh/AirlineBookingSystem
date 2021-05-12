@@ -14,17 +14,7 @@ namespace AirlineBookingSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string from = source1.SelectedValue;
-            string to = destination1.SelectedValue;
-            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            conn.Open();
-            string query = "Select * from flight where source='" + from + "' and destination='" + to + "'";
-            MySqlCommand cmdd = new MySqlCommand(query, conn);
-            MySqlDataAdapter sda = new MySqlDataAdapter(cmdd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            
             
         }
 
@@ -88,7 +78,17 @@ namespace AirlineBookingSystem
 
         protected void dbdata_Click(object sender, EventArgs e)
         {
-
+            string from = source1.SelectedValue;
+            string to = destination1.SelectedValue;
+            MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            conn.Open();
+            string query = "Select * from flight where source='" + from + "' and destination='" + to + "'";
+            MySqlCommand cmdd = new MySqlCommand(query, conn);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmdd);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            GridView1.DataSource = ds;
+            GridView1.DataBind();
         }
     }
 }

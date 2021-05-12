@@ -204,7 +204,7 @@ namespace AirlineBookingSystem
             {
                 string custid = ((string)Session["custid"]);
                 int fid = int.Parse(Application["flightid"].ToString());
-                DateTime today = DateTime.Today;
+                DateTime today = DateTime.Now;
                 MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
                 conn.Open();
                 MySqlCommand cmdd = new MySqlCommand("select * from flight where fid=" + fid, conn);
@@ -216,9 +216,9 @@ namespace AirlineBookingSystem
                 int ecoprice = eprice * ecount;
                 int busiprice = bprice * bcount;
                 int firstprice = fprice * fcount;
-                Response.Write(ecoprice);
-                Response.Write(busiprice);
-                Response.Write(firstprice);
+                //Response.Write(ecoprice);
+                //Response.Write(busiprice);
+                //Response.Write(firstprice);
                 int tamount = ecoprice + busiprice + firstprice ;
                 int nop = ecount + bcount + fcount;
                 Application["custid"] = custid;
