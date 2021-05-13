@@ -19,27 +19,7 @@ namespace AirlineBookingSystem
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //int custid = int.Parse(Application["custid"].ToString());
-            //int fid = int.Parse(Application["fid"].ToString());
-            //int ecount = int.Parse(Application["ecount"].ToString());
-            //int eprice = int.Parse(Application["eprice"].ToString());
-            //int bcount = int.Parse(Application["bcount"].ToString());
-            //int bprice = int.Parse(Application["bprice"].ToString());
-            //int fcount = int.Parse(Application["fcount"].ToString());
-            //int fprice = int.Parse(Application["fprice"].ToString());
-            //int tamount = int.Parse(Application["tamount"].ToString());
-            ////DateTime bdate = Convert.ToDateTime(Application["today"]);
-            //string bdate = Application["today"].ToString();
-            //Response.Write("custid--" + custid);
-            //Response.Write("<br>fid--" + fid);
-            //Response.Write("<br>eseat--" + ecount);
-            //Response.Write("<br>eprice--" + eprice);
-            //Response.Write("<br>bseat--" + bcount);
-            //Response.Write("<br>bprice--" + bprice);
-            //Response.Write("<br>fseat--" + fcount);
-            //Response.Write("<br>fprice--" + fprice);
-            //Response.Write("<br>total fare--" + tamount);
-            //Response.Write("<br>booking date--"+bdate);
+
         }
 
         protected void button_Click(object sender, EventArgs e)
@@ -132,19 +112,6 @@ namespace AirlineBookingSystem
             string arrivaltime = mydr2.GetString(4);
             string pass_name = mydr2.GetString(5);
 
-            Response.Write("booking id--" + bookid);
-            Response.Write("<br>booking date--" + bookingdate);
-            Response.Write("<br>eco--" + economic);
-            Response.Write("<br>business--" + business);
-            Response.Write("<br>first--" + first);
-            Response.Write("<br>total amount--" + tfare);
-            Response.Write("<br>from--" + from);
-            Response.Write("<br>to--" + to);
-            Response.Write("<br>dp" + departuretime);
-            Response.Write("<br>at--" + arrivaltime);
-            Response.Write("<br>passenger_name--" + pass_name);
-            Response.Write("<br>email--" + email);
-
             //email
             string textBody = "Booking " + bookid + "<br>Booking Date " + bookingdate + "<br>Passenger Name " + pass_name +
                         "<br><table border=" + 1 + " cellpadding=" + 2 + " cellspacing=" + 2 + " width = " + 800 + ">" +
@@ -166,7 +133,8 @@ namespace AirlineBookingSystem
             string fromaddress = "FlyAir<flyairofficial00@gmail.com>";
             msg.From = new MailAddress(fromaddress);
             smtp.Send(msg);
-            Response.Write("<script language='javascript'>window.alert(Booking Confirmed');window.location='login.aspx';</script>");
+            //Response.Write("<script language='javascript'>window.alert(Booking Confirmed');window.location='login.aspx';</script>");
+            Response.Redirect("BookingDone.aspx");
 
         }
 

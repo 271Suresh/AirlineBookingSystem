@@ -242,6 +242,10 @@ namespace AirlineBookingSystem
 
         protected void Cancel_Click(object sender, EventArgs e)
         {
+            ecount = 0;
+            bcount = 0;
+            fcount = 0;
+
             Response.Redirect("home.aspx");
         }
     }
