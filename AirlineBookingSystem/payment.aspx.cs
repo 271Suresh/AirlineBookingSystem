@@ -110,70 +110,63 @@ namespace AirlineBookingSystem
                 con.Close();
             }
 
-            ////send booking details to email
-            //string useremail = ((string)Session["email"]);
-            //int bookid = int.Parse(mydr.GetString(0).ToString());
-            //string bookingdate = mydr.GetString(10);
-            //int economic = int.Parse(mydr.GetString(3).ToString());
-            //int business = int.Parse(mydr.GetString(5).ToString());
-            //int first = int.Parse(mydr.GetString(7).ToString());
-            //int tfare = int.Parse(mydr.GetString(9).ToString());
-
-            ////fetching data from flight table
-            //MySqlConnection con4 = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            //con4.Open();
-            //MySqlCommand cmd4 = new MySqlCommand("Select * from flight where fid="+fid, con4);
-            //MySqlDataReader mydr1 = cmd4.ExecuteReader();
-            //mydr1.Read();
-            //string flightname = mydr1.GetString(7).ToString();
-            //string from = mydr1.GetString(2).ToString();
-            //string to = mydr1.GetString(3).ToString();
-            //string departuretime = mydr1.GetString(4).ToString();
-            //string arrivaltime = mydr1.GetString(5).ToString();
-
-            ////fetching data from payment table
-            //MySqlConnection con5 = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            //con5.Open();
-            //MySqlCommand cmd5 = new MySqlCommand("Select * from payment where bid=" + bookid, con5);
-            //MySqlDataReader mydr2 = cmd5.ExecuteReader();
-            //mydr2.Read();
-            //string pass_name = mydr2.GetString(1).ToString();
-
-            //Response.Write("booking id--" + bookid);
-            //Response.Write("<br>booking date--" + bookingdate);
-            //Response.Write("<br>eco--" + economic);
-            //Response.Write("<br>business--" + business);
-            //Response.Write("<br>first--" + first);
-            //Response.Write("<br>total amount--" + tfare);
-            //Response.Write("<br>from--" + from);
-            //Response.Write("<br>to--" + to);
-            //Response.Write("<br>dp" + departuretime);
-            //Response.Write("<br>at--" + arrivaltime);
-            //Response.Write("<br>passenger_name--" + pass_name);
-            //Response.Write("<br>email--" + email);
+            //send booking details to email
+            string useremail = ((string)Session["email"]);
+            int bookid = int.Parse(mydr.GetString(0));
+            string bookingdate = mydr.GetString(10);
+            int economic = int.Parse(mydr.GetString(3));
+            int business = int.Parse(mydr.GetString(5));
+            int first = int.Parse(mydr.GetString(7));
+            int tfare = int.Parse(mydr.GetString(9));
 
 
-            //string textBody = "Booking " + bookid + "<br>Booking Date " + bookingdate + "<br>Passenger Name " + pass_name +
-            //            "<br><table border=" + 1 + " cellpadding=" + 2 + " cellspacing=" + 2 + " width = " + 800 + ">" +
-            //            "<th bgcolor='#4da6ff'>flight</th><th bgcolor='#4da6ff'>Economic</th><th bgcolor='#4da6ff'>Business</th><th bgcolor='#4da6ff'>First</th><th bgcolor='#4da6ff'>Total fare</th><th bgcolor='#4da6ff'>Departs</th><th bgcolor='#4da6ff'>Arrives</th>" +
-            //            "<tr><td>" + flightname + "</td><td>" + economic + "</td><td>" + business + "</td><td>" + first + "</td><td>" + tfare + "</td><td>" + from + "<br>" + departuretime + "</td><td>" + to + "<br>" + arrivaltime + "</td></tr>";
+            MySqlConnection con5 = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
+            con5.Open();
+            MySqlCommand cmd5 = new MySqlCommand("select f.airlinename,f.source,f.destination,f.departuretime,f.arrivaltime,p.pname,c.custid from flight f,payment p, cust c where f.fid='"+fid+"'and p.bid='"+bookid+"'",con5);
+            MySqlDataReader mydr2 = cmd5.ExecuteReader();
+            mydr2.Read();
+            string flightname = mydr2.GetString(0);
+            string from = mydr2.GetString(1);
+            string to = mydr2.GetString(2);
+            string departuretime = mydr2.GetString(3);
+            string arrivaltime = mydr2.GetString(4);
+            string pass_name = mydr2.GetString(5);
 
-            //textBody += "</table>";
-            //SmtpClient smtp = new SmtpClient();
-            //smtp.Host = "smtp.gmail.com";
-            //smtp.Port = 587;
-            //smtp.Credentials = new System.Net.NetworkCredential("flyairofficial00@gmail.com", "For@whileloop");
-            //smtp.EnableSsl = true;
-            //MailMessage msg = new MailMessage();
-            //msg.Subject = "Booking Confirmation";
-            //msg.Body = textBody;
-            //msg.IsBodyHtml = true;
-            //string toaddress = useremail;
-            //msg.To.Add(toaddress);
-            //string fromaddress = "FlyAir<flyairofficial00@gmail.com>";
-            //msg.From = new MailAddress(fromaddress);
-            //smtp.Send(msg);
-            //Response.Write("<script language='javascript'>window.alert(Booking Confirmed');window.location='login.aspx';</script>");
+            Response.Write("booking id--" + bookid);
+            Response.Write("<br>booking date--" + bookingdate);
+            Response.Write("<br>eco--" + economic);
+            Response.Write("<br>business--" + business);
+            Response.Write("<br>first--" + first);
+            Response.Write("<br>total amount--" + tfare);
+            Response.Write("<br>from--" + from);
+            Response.Write("<br>to--" + to);
+            Response.Write("<br>dp" + departuretime);
+            Response.Write("<br>at--" + arrivaltime);
+            Response.Write("<br>passenger_name--" + pass_name);
+            Response.Write("<br>email--" + email);
+
+            //email
+            string textBody = "Booking " + bookid + "<br>Booking Date " + bookingdate + "<br>Passenger Name " + pass_name +
+                        "<br><table border=" + 1 + " cellpadding=" + 2 + " cellspacing=" + 2 + " width = " + 800 + ">" +
+                        "<th bgcolor='#4da6ff'>flight</th><th bgcolor='#4da6ff'>Economic</th><th bgcolor='#4da6ff'>Business</th><th bgcolor='#4da6ff'>First</th><th bgcolor='#4da6ff'>Total fare</th><th bgcolor='#4da6ff'>Departs</th><th bgcolor='#4da6ff'>Arrives</th>" +
+                        "<tr><td>" + flightname + "</td><td>" + economic + "</td><td>" + business + "</td><td>" + first + "</td><td>" + tfare + "</td><td>" + from + "<br>" + departuretime + "</td><td>" + to + "<br>" + arrivaltime + "</td></tr>";
+
+            textBody += "</table>";
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("flyairofficial00@gmail.com", "For@whileloop");
+            smtp.EnableSsl = true;
+            MailMessage msg = new MailMessage();
+            msg.Subject = "Booking Confirmation";
+            msg.Body = textBody;
+            msg.IsBodyHtml = true;
+            string toaddress = useremail;
+            msg.To.Add(toaddress);
+            string fromaddress = "FlyAir<flyairofficial00@gmail.com>";
+            msg.From = new MailAddress(fromaddress);
+            smtp.Send(msg);
+            Response.Write("<script language='javascript'>window.alert(Booking Confirmed');window.location='login.aspx';</script>");
 
         }
 

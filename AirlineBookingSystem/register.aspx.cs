@@ -36,7 +36,7 @@ namespace AirlineBookingSystem
             int email_flag = 0;
             while (mydr.Read())
             {
-              if (email.Equals(mydr["email"].ToString()))
+                if (email.Equals(mydr["email"].ToString()))
                 {
                     email_flag = 1;
                 }
