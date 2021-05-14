@@ -51,13 +51,13 @@ namespace AirlineBookingSystem
         protected global::System.Web.UI.WebControls.DropDownList destination1;
 
         /// <summary>
-        /// Date control.
+        /// ddate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Date;
+        protected global::System.Web.UI.WebControls.TextBox ddate;
 
         /// <summary>
         /// dbdata control.

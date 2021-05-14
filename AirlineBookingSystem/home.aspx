@@ -315,7 +315,7 @@
                             <div class="labeltext">
                                 <label for="source">FROM</label>
                                 <asp:DropDownList class="textbox" ID="source1" runat="server" name="source">  
-                                    <asp:ListItem Value="0">Select SOURCE</asp:ListItem>  
+                                    <asp:ListItem Value="none" Disabled Selected>Select SOURCE</asp:ListItem>  
                                     <asp:ListItem Value="MUMBAI (BOI)">MUMBAI (BOI) </asp:ListItem>  
                                     <asp:ListItem Value="CHENNAI (MAA)">CHENNAI (MAA)</asp:ListItem>  
                                     <asp:ListItem Value="LUCKNOW (LKO)">LUCKNOW (LKO) </asp:ListItem> 
@@ -326,12 +326,13 @@
                                     <asp:ListItem Value="JAIPUR (JAI)">JAIPUR (JAI)</asp:ListItem> 
                                     <asp:ListItem Value="VASCO DA GAMA (GOI)">VASCO DA GAMA (GOI)</asp:ListItem> 
                                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator ErrorMessage="Please Select Your Origin" ControlToValidate="source1" InitialValue="none" runat="server" ForeColor="Red"/>
                             </div>
 
                             <div class="labeltext">
                                 <label for="destination">TO</label>
                                 <asp:DropDownList class="textbox" ID="destination1" runat="server" name="destination" >
-                                    <asp:ListItem Value="0">Select DESTINATION</asp:ListItem> 
+                                    <asp:ListItem Value="none" Disabled Selected>Select DESTINATION</asp:ListItem> 
                                     <asp:ListItem Value="KOCHI (COK)">KOCHI (COK)</asp:ListItem> 
                                     <asp:ListItem Value="PATNA (PAT)">PATNA (PAT)</asp:ListItem>     
                                     <asp:ListItem Value="PUNE (PNQ)">PUNE (PNQ)</asp:ListItem>  
@@ -342,11 +343,13 @@
                                     <asp:ListItem Value="CHENNAI (MAA)">CHENNAI (MAA)</asp:ListItem>  
                                     <asp:ListItem Value="LUCKNOW (LKO)">LUCKNOW (LKO) </asp:ListItem> 
                                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator ErrorMessage="Please Select Your Destination" ControlToValidate="destination1" InitialValue="none" runat="server" ForeColor="Red"/>
                             </div>
 
                             <div class="labeltext">
                                 <label for="date">departure date</label>
-                                <asp:TextBox runat="server" class="textbox" Id="Date" textmode="Date"/>
+                                <asp:TextBox runat="server" class="textbox" Id="ddate" textmode="Date"/>
+                                <asp:RequiredFieldValidator ErrorMessage="Plesae Select Departure Date" ControlToValidate="ddate" runat="server" ForeColor="Red"/>
                             </div>
                         </div>
                         <div class="buttons">

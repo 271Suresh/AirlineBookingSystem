@@ -100,7 +100,7 @@
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             width: 40%;
-            height: 80vh;
+            height: 105vh;
             margin: auto;
             margin-top: 3rem;
             padding: 3rem;
@@ -124,6 +124,16 @@
 	        font-size:17px;
 	        padding:16px 31px;
             border:none;
+            }
+            img{
+                width:50%;
+                border-radius:20px;
+                margin-left:110px;
+            }
+            .topbox {
+                display: flex;
+                justify-content:space-evenly;
+                
             }
         </style>
     </head>
@@ -156,13 +166,24 @@
                 <div class="outer-block">
                     <h1 style="color: white;text-align:center">Profile Page</h1>
                     <div class="middle-block">
-                        <form action="register.aspx" method="post">
-                            <div class="container" style="text-align:center">
-                                <%=GetWhileLoopData()%>
-                                <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">Change Password</a>
-                                <a href="home.aspx" class="button">Cancel</a>
+                        <div class="container">
+                            <img src="user.jpg" /><br />
+                            <div class="topbox">
+                                <div class="indexname">
+                                    <h4>User Name</h4><br />
+                                    <h4>City</h4><br />
+                                    <h4>State</h4><br />
+                                    <h4>Gender</h4><br />
+                                    <h4>Mobile No.</h4>
+                                </div>
+                                <div class="value">
+                                    <%=GetWhileLoopData()%>
+                                </div>
                             </div>
-                        </form>
+                            <br />
+                            <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">Change Password</a>
+                            <a href="home.aspx" class="button">Cancel</a>
+                        </div>
                     </div>
                 </div>
                 <%--<div class="outer-block">
