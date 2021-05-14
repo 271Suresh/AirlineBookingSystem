@@ -139,7 +139,7 @@
                     <a href="bookings.aspx"> Bookings</a>
                 </li>
                 <li>
-                    <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                    <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;&nbsp;<%=Session["fname"]%></a>
                 </li>
                     
                 <li><form   runat="server" method="post">

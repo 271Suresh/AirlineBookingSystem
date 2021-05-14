@@ -264,7 +264,7 @@
                                 <a href="bookings.aspx"> Bookings</a>
                             </li>
                             <li>
-                                <a href="profile.aspx"> <i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                                <a href="profile.aspx"><i class="fa fa-user-circle" aria-hidden="true" ></i>&nbsp;&nbsp;<%=Session["fname"]%></a>
                             </li>
                     
                             <li><asp:Button Text="Logout" class="myButton" runat="server" Id="logout" OnClick="logout_Click"/></li>

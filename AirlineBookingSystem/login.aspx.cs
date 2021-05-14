@@ -22,7 +22,7 @@ namespace AirlineBookingSystem
 
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            string query = "Select custid,email,pass from cust";
+            string query = "Select custid,email,pass,fname from cust";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
             int email_flag = 0;
@@ -32,6 +32,7 @@ namespace AirlineBookingSystem
                 {
                     email_flag = 1;
                     Session["custid"] = mydr["custid"].ToString();
+                    Session["fname"] = mydr["fname"].ToString();
                 }
             }
 
