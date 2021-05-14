@@ -236,6 +236,39 @@
                 #eb0c56 100%
             );
             }
+
+            /*gridview*/
+            .mydatagrid
+            {
+            width: 80%;
+            border: solid 2px black;
+            min-width: 70%;
+            }
+            .header
+            {
+            background-color: #000;
+          
+            color: White;
+            height: 25px;
+            text-align: center;
+            font-size: 16px;
+            }
+
+            .rows
+            {
+            background-color: #fff;
+         
+            font-size: 14px;
+            color: #000;
+             height: 40px;
+            text-align: left;
+            padding:20px;
+            }
+            .rows:hover
+            {
+            background-color: #5badff;
+            color: #fff;
+            }
         </style>
 
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -328,21 +361,11 @@
                 </form>
                 <div class="content2">
                     <table class="styled-table">
-                        <thead>
-                            <tr>
-                                <th>Flight No.</th>
-                                <th>Name</th>
-                                <th>Origin</th>
-                                <th>Destination</th>
-                                <th>DATE</th>
-                                <th>DEPARTURE TIME</th>
-                                <th>ARRIVAL TIME</th>
-                                <th>Price</th>
-                                <th>BOOK</th>
-                            </tr>
-                        </thead>
+
                         <tbody>
                            <asp:GridView ID="GridView1" 
+                               CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                                HeaderStyle-CssClass="header" RowStyle-CssClass="rows"
                                   runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" 
                                   autogenerateselectbutton="True"
                                   OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" 
