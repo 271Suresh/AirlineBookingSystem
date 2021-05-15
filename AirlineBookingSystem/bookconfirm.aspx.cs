@@ -17,7 +17,8 @@ namespace AirlineBookingSystem
         //private static int eseat_avail;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["email"] == null)
+                Response.Redirect("login.aspx");
         }
 
         protected void logout_Click(object sender, EventArgs e)
