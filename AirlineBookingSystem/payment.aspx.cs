@@ -113,10 +113,10 @@ namespace AirlineBookingSystem
             string pass_name = mydr2.GetString(5);
 
             //email
-            string textBody = "Booking " + bookid + "<br>Booking Date " + bookingdate + "<br>Passenger Name " + pass_name +
+            string textBody = "Booking No. " + bookid + "<br>Booking Date: " + bookingdate + "<br>Passenger Name: " + pass_name +
                         "<br><table border=" + 1 + " cellpadding=" + 2 + " cellspacing=" + 2 + " width = " + 800 + ">" +
                         "<th bgcolor='#4da6ff'>flight</th><th bgcolor='#4da6ff'>Economic</th><th bgcolor='#4da6ff'>Business</th><th bgcolor='#4da6ff'>First</th><th bgcolor='#4da6ff'>Total fare</th><th bgcolor='#4da6ff'>Departs</th><th bgcolor='#4da6ff'>Arrives</th>" +
-                        "<tr><td>" + flightname + "</td><td>" + economic + "</td><td>" + business + "</td><td>" + first + "</td><td>" + tfare + "</td><td>" + from + "<br>" + departuretime + "</td><td>" + to + "<br>" + arrivaltime + "</td></tr>";
+                        "<tr><td>" + flightname + "</td><td>" + economic + "</td><td>" + business + "</td><td>" + first + "</td><td>₹" + tfare + "</td><td>" + from + "<br>" + departuretime + "</td><td>" + to + "<br>" + arrivaltime + "</td></tr>";
 
             textBody += "</table>";
             SmtpClient smtp = new SmtpClient();
@@ -125,7 +125,7 @@ namespace AirlineBookingSystem
             smtp.Credentials = new System.Net.NetworkCredential("flyairofficial00@gmail.com", "For@whileloop");
             smtp.EnableSsl = true;
             MailMessage msg = new MailMessage();
-            msg.Subject = "Booking Confirmation";
+            msg.Subject = "Booking Confirm";
             msg.Body = textBody;
             msg.IsBodyHtml = true;
             string toaddress = useremail;

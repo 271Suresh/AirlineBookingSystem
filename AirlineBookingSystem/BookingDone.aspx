@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+    <head runat="server">
         <title>Home page</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
@@ -238,29 +238,27 @@
             );
             }
             /* payment */
-              .green-box {
+                .green-box {
                 display: flex;
                 flex-direction: column;
                 align-self: center;
                 margin-top: 10rem;
-              }
+                }
             .msg {
                 color: white;
                 font-size:40px;
-              }
+                }
         </style>
-    
-
         <script type="text/javascript">
             setTimeout('window.location="home.aspx";', 4000);
         </script>
     </head>
-<body>
+    <body>
         <div class="fl">
             <div class="backimage">
                 <div class="green-box">
-                <img src="https://www.freeiconspng.com/thumbs/success-icon/success-icon-10.png" alt=""/>
-                <div class="msg">Booking Succesfull</div>
+                    <img src="https://www.freeiconspng.com/thumbs/success-icon/success-icon-10.png" alt=""/>
+                    <div class="msg">Booking Succesfull</div>
                 </div>
             </div>
         </div>

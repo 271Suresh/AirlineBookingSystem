@@ -24,17 +24,6 @@ namespace AirlineBookingSystem
             string query = "Select * from cust where email='"+ session_data+"'";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataReader mydr = cmdd.ExecuteReader();
-            //while (mydr.Read())
-            //{
-                
-            //    Response.Write("Username - " + fname +' ' +lname);
-            //    Response.Write("<br><br>City - " + city);
-            //    Response.Write("<br><br>State - " + state);
-            //    Response.Write("<br><br>Gender - " + gen);
-            //    Response.Write("<br><br>Mobile Number - " + ph);
-            //    Response.Write("<br><br>");
-                
-            //}
             while (mydr.Read())
             {
                 string fname = mydr.GetString(1);

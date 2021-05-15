@@ -307,7 +307,6 @@
                             <li><a href="login.aspx"> Login</a></li>
                             <li><a href="register.aspx"> REGISTER</a></li>
                             <%  } %>
-        
                         </ul>
                     </div>
                     <div class="content">
@@ -326,9 +325,8 @@
                                     <asp:ListItem Value="JAIPUR (JAI)">JAIPUR (JAI)</asp:ListItem> 
                                     <asp:ListItem Value="VASCO DA GAMA (GOI)">VASCO DA GAMA (GOI)</asp:ListItem> 
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ErrorMessage="Please Select Your Origin" ControlToValidate="source1" InitialValue="none" runat="server" ForeColor="Red"/>
+                                <%--<asp:RequiredFieldValidator ErrorMessage="Please Select Your Origin" ControlToValidate="source1" InitialValue="none" runat="server" ForeColor="Red"/>--%>
                             </div>
-
                             <div class="labeltext">
                                 <label for="destination">TO</label>
                                 <asp:DropDownList class="textbox" ID="destination1" runat="server" name="destination" >
@@ -343,13 +341,12 @@
                                     <asp:ListItem Value="CHENNAI (MAA)">CHENNAI (MAA)</asp:ListItem>  
                                     <asp:ListItem Value="LUCKNOW (LKO)">LUCKNOW (LKO) </asp:ListItem> 
                                 </asp:DropDownList>
-                                <asp:RequiredFieldValidator ErrorMessage="Please Select Your Destination" ControlToValidate="destination1" InitialValue="none" runat="server" ForeColor="Red"/>
+                                <%--<asp:RequiredFieldValidator ErrorMessage="Please Select Your Destination" ControlToValidate="destination1" InitialValue="none" runat="server" ForeColor="Red"/>--%>
                             </div>
-
                             <div class="labeltext">
                                 <label for="date">departure date</label>
                                 <asp:TextBox runat="server" class="textbox" Id="ddate" textmode="Date"/>
-                                <asp:RequiredFieldValidator ErrorMessage="Plesae Select Departure Date" ControlToValidate="ddate" runat="server" ForeColor="Red"/>
+                                <%--<asp:RequiredFieldValidator ErrorMessage="Plesae Select Departure Date" ControlToValidate="ddate" runat="server" ForeColor="Red"/>--%>
                             </div>
                         </div>
                         <div class="buttons">
@@ -364,7 +361,6 @@
                 </form>
                 <div class="content2">
                     <table class="styled-table">
-
                         <tbody>
                            <asp:GridView ID="GridView1" 
                                CssClass="mydatagrid" PagerStyle-CssClass="pager"
@@ -377,10 +373,8 @@
                             </asp:GridView>
                         </tbody>
                     </table>
-                  
-                  
                 </div>
             </div>
-            </div>
+        </div>
     </body>
 </html>

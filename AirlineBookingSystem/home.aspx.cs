@@ -37,41 +37,6 @@ namespace AirlineBookingSystem
         {
              /* Verifies that the control is rendered */
         }
-
- 
-        //public string GetWhileLoopData()
-        //{
-        //    string from = source1.SelectedValue;
-        //    string to = destination1.SelectedValue;
-        //    string htmlStr = " ";
-        //    MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-        //    conn.Open();
-        //    string query = "Select * from flight where source='"+ from +"' and destination='"+ to +"'";
-        //    MySqlCommand cmdd = new MySqlCommand(query, conn);
-        //    MySqlDataReader mydr = cmdd.ExecuteReader();
-        //    int from_to = 0;
-        //    while (mydr.Read())
-        //    {
-        //        from_to = 1;
-        //        string flino1 = mydr.GetString(1);
-        //        string sairline1 = mydr.GetString(8);
-        //        string source1 = mydr.GetString(2);
-        //        string destination1 = mydr.GetString(3);
-        //        string date1 = mydr.GetString(6);
-        //        string dtime1 = mydr.GetString(4);
-        //        string atime1 = mydr.GetString(5);
-        //        string price1 = mydr.GetString(7);
-        //        htmlStr += "<tr><td>" + flino1 + "</td><td>" + sairline1 + "</td><td>" + source1 + "</td><td>" + destination1 + "</td>" +
-        //            "<td>" + date1 + "</td><td>" + dtime1 + "</td><td>" + atime1 + "</td><td>" + price1 + "</td>";
-        //    }
-        //    if(from_to == 0)
-        //    {
-        //        Response.Write("<script>alert('Password Do Not Match!!')</script>");
-        //    }
-        //    conn.Close();
-        //    return htmlStr;
-        //}
-
         protected void logout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
@@ -93,7 +58,7 @@ namespace AirlineBookingSystem
             sda.Fill(ds);
             if(ds.Tables[0].Rows.Count == 0)
             {
-                Response.Write("<script>alert('No Flight Available!!')</script>");
+                Response.Write("<script>alert('No Flight Available!!Please Provide Proper Date')</script>");
             }
             else
             {

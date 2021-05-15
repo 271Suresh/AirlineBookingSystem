@@ -268,11 +268,9 @@
                     </ul>
             </div>
             <form runat="server" method="post">       
-            <div class="outer-block">
-                  <div class="leftbox">
-                      
-                        <div class="ecobox">
-                            
+                <div class="outer-block">
+                    <div class="leftbox">
+                        <div class="ecobox"> 
                             <div class="boxbut">
                                 <table >
                                     <thead>
@@ -304,32 +302,29 @@
                                             <td><asp:Button Text="remove" runat="server" class="buttonc" Id="Button4" OnClick="fcremove_Click"/></td>
                                         </tr>
                                     </tbody>
-                                </table>
-                               
+                                </table> 
                             </div>
                         </div>
-                   
                     </div>
-                    
-                 <div class="rightbox">
-                    <div class="topbox">
-                        <div class="indexname">
-                            <h4>Email</h4>
-                            <h4>flight name</h4>
-                            <h4>Economy class</h4>
-                            <h4>Business class</h4>
-                            <h4>First class</h4>
-                            <h3>Total Amount</h3>
+                    <div class="rightbox">
+                        <div class="topbox">
+                            <div class="indexname">
+                                <h4>Email</h4>
+                                <h4>flight name</h4>
+                                <h4>Economy class</h4>
+                                <h4>Business class</h4>
+                                <h4>First class</h4>
+                                <h3>Total Amount</h3>
+                            </div>
+                            <div class="value">
+                                <%=cartdata()%>
+                            </div>
                         </div>
-                        <div class="value">
-                            <%=cartdata()%>
-                        </div>
+                        <asp:Button Text="Book" class="buttonb" runat="server" Id="Button7" OnClick="Book_Click"/>
+                        <asp:Button Text="Cancel" class="buttonc" runat="server" Id="Cancel" OnClick="Cancel_Click"/>
                     </div>
-                       <asp:Button Text="Book" class="buttonb" runat="server" Id="Button7" OnClick="Book_Click"/>
-                       <asp:Button Text="Cancel" class="buttonc" runat="server" Id="Cancel" OnClick="Cancel_Click"/>
                 </div>
-               </div>
-                </form>
-            </div>
+            </form>
+        </div>
     </body>  
 </html>

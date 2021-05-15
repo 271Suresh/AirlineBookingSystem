@@ -47,7 +47,7 @@ namespace AirlineBookingSystem
                 Response.Write("<script>alert('email already exist')</script>");
             }
             else
-            {  //string mycon = "Server=localhost;Database=test1;Uid=root;Password= ;";
+            {  
                 MySqlConnection con = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
                 MySqlCommand cmd = new MySqlCommand("insert into flyair.cust(fname,lname,gender,dob,city,state,email,phone,pass,cpass) values(@a1,@a2,@a3,@a4,@a5,@a6,@a7,@a8,@a9,@a10)", con);
 
@@ -63,9 +63,6 @@ namespace AirlineBookingSystem
                 cmd.Parameters.AddWithValue("@a10", cpass);
                 con.Open();
                 cmd.ExecuteNonQuery();
-                con.Close();
-                //Response.Write("<script>alert('Data Saved Successfully')</script>");
-                //Response.Redirect("login.aspx");
                 Response.Write("<script language='javascript'>window.alert('Registration Successful');window.location='login.aspx';</script>");
             }
 

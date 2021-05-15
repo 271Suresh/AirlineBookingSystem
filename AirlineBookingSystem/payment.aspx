@@ -256,8 +256,7 @@
                                 <input type="text" name="mob" placeholder="Contact No" required/>
                                 <label for="email"><i class="fa fa-envelope"></i> Email</label>
                                 <input type="email" name="email" placeholder="john@example.com" required/>
-                                
-                                
+            
                                 <div class="h-block">
                                     <div class="middle-block">
                                         <label for="state">State</label>
@@ -288,48 +287,45 @@
                                         <input type="text" name="zip" placeholder="100001" required/>
                                     </div>
                                 </div>
-                            </div>
-                                
+                            </div>  
                                     
                             <div class="middle-block">
                                 <h3>Payment</h3>
-                                    
                                 <label for="cname">Card Holder Name</label>
                                 <input type="text" name="cardname" placeholder="Card Holder" required/>
                                 <label for="ccnum">Credit card number</label>
                                 <input type="text" name="cardnumber" placeholder="1111-2222-3333-4444" required/>
                                 <label for="expmonth">Exp Month</label>
                                 <select name="expmonth" required>
-                                  <option value="">Select Exp Month</option>
-                                  <option value="Jan">Jan</option>
-                                  <option value="Feb">Feb</option>
-                                  <option value="Mar">Mar</option>
-                                  <option value="Apr">Apr</option>
-                                  <option value="May">May</option>
-                                  <option value="Jun">Jun</option>
-                                  <option value="Jul">Jul</option>
-                                  <option value="Aug">Aug</option>
-                                  <option value="Sep">Sep</option>
-                                  <option value="Oct">Oct</option>
-                                  <option value="Nov">Nov</option>
-                                  <option value="Dec">Dec</option>
+                                    <option value="">Select Exp Month</option>
+                                    <option value="Jan">Jan</option>
+                                    <option value="Feb">Feb</option>
+                                    <option value="Mar">Mar</option>
+                                    <option value="Apr">Apr</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">Jun</option>
+                                    <option value="Jul">Jul</option>
+                                    <option value="Aug">Aug</option>
+                                    <option value="Sep">Sep</option>
+                                    <option value="Oct">Oct</option>
+                                    <option value="Nov">Nov</option>
+                                    <option value="Dec">Dec</option>
                                 </select>
                                 <div class="h-block">
                                     <div class="middle-block">
                                         <label for="expyear">Exp Year</label>
                                         <select name="expyear" required>
-                                          <option value="">Select Exp Year</option>
-                                          <option value="2021">2021</option>
-                                          <option value="2022">2022</option>
-                                          <option value="2023">2023</option>
-                                          <option value="2024">2024</option>
-                                          <option value="2025">2025</option>
-                                          <option value="2026">2026</option>
-                                          <option value="2027">2027</option>
-                                          <option value="2028">2028</option>
-                                          <option value="2029">2029</option>
-                                          <option value="2030">2030</option>
-                                          
+                                            <option value="">Select Exp Year</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                            <option value="2029">2029</option>
+                                            <option value="2030">2030</option>
                                         </select>
                                     </div>
                                     <div class="middle-block"> 
@@ -340,7 +336,7 @@
                             </div>
                         </div>
                         <asp:Button class="button" Text="Make Payment" runat="server" style="background-color: #0277bd" id="button" OnClick="button_Click"/>
-                       <%-- <a href="home.aspx" class="button">Cancel</a>--%>
+                        <%-- <a href="home.aspx" class="button">Cancel</a>--%>
                     </form>
                     <!-- <a href="" class="button" style="background-color: #0277bd">Make Payment</a> -->
                     <a href="home.aspx" class="button">Cancel</a>
@@ -362,7 +358,6 @@
                             <%=seatData()%>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
