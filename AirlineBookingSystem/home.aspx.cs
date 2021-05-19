@@ -58,7 +58,7 @@ namespace AirlineBookingSystem
             sda.Fill(ds);
             if(ds.Tables[0].Rows.Count == 0)
             {
-                Response.Write("<script>alert('No Flight Available!!Please Provide Proper Date')</script>");
+                Response.Write("<script>alert('No Flight Available on this Day')</script>");
             }
             else
             {
