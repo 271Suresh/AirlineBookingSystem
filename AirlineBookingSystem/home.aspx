@@ -279,7 +279,7 @@
                 var day = ('0' + today.getDate()).slice(-2);
                 var year = today.getFullYear();
                 var date = year + '-' + month + '-' + day;
-                $('[id*=Date]').attr('min', date);
+                $('[id*=ddate]').attr('min', date);
             });
         </script>
     </head>

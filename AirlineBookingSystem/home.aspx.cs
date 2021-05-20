@@ -51,12 +51,12 @@ namespace AirlineBookingSystem
             string departuredate = ddate.Text;
             MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             conn.Open();
-            string query = "Select * from flight where source='" + from + "' and destination='" + to + "' and date='" +departuredate+"'";
+            string query = "Select * from flight where source='" + from + "' and destination='" + to + "' and date='" + departuredate + "'";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
             MySqlDataAdapter sda = new MySqlDataAdapter(cmdd);
             DataSet ds = new DataSet();
             sda.Fill(ds);
-            if(ds.Tables[0].Rows.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 Response.Write("<script>alert('No Flight Available on this Day')</script>");
             }

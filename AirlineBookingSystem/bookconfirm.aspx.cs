@@ -221,7 +221,7 @@ namespace AirlineBookingSystem
                 //Response.Write(busiprice);
                 //Response.Write(firstprice);
                 int tamount = ecoprice + busiprice + firstprice ;
-                int nop = ecount + bcount + fcount;
+                //int nop = ecount + bcount + fcount;
                 Application["custid"] = custid;
                 Application["fid"] = fid;
                 Application["ecount"] = ecount;
@@ -231,11 +231,14 @@ namespace AirlineBookingSystem
                 Application["fcount"] = fcount;
                 Application["fprice"] = fprice;
                 Application["tamount"] = tamount;
-                Application["nop"] = nop;
+                //Application["nop"] = nop;
                 Application["ecoprice"] = ecoprice;
                 Application["busiprice"] = busiprice;
                 Application["firstprice"] = firstprice;
                 Application["today"] = today;
+                ecount = 0;
+                bcount = 0;
+                fcount = 0;
                 Response.Redirect("payment.aspx");
                 conn.Close();
             }
