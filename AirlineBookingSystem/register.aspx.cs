@@ -44,24 +44,13 @@ namespace AirlineBookingSystem
 
             if(email_flag == 1)
             {
-                Response.Write("<script>alert('email already exist')</script>");
+                Response.Write("<script>alert('Email Already Exist, Please provide different Email')</script>");
             }
             else
             {  
                 MySqlConnection con = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
-                MySqlCommand cmd = new MySqlCommand("insert into flyair.cust(fname,lname,gender,dob,city,state,email,phone,pass,cpass) values(@a1,@a2,@a3,@a4,@a5,@a6,@a7,@a8,@a9,@a10)", con);
-
-                cmd.Parameters.AddWithValue("@a1", fname);
-                cmd.Parameters.AddWithValue("@a2", lname);
-                cmd.Parameters.AddWithValue("@a3", gen);
-                cmd.Parameters.AddWithValue("@a4", dob);
-                cmd.Parameters.AddWithValue("@a5", city);
-                cmd.Parameters.AddWithValue("@a6", state);
-                cmd.Parameters.AddWithValue("@a7", email);
-                cmd.Parameters.AddWithValue("@a8", ph);
-                cmd.Parameters.AddWithValue("@a9", pass);
-                cmd.Parameters.AddWithValue("@a10", cpass);
                 con.Open();
+                MySqlCommand cmd = new MySqlCommand("insert into flyair.cust(fname,lname,gender,dob,city,state,email,phone,pass,cpass) values('" + fname + "','" + lname + "','" + gen + "','" + dob + "','" + city + "','" + state + "','" + email + "'," + ph + ",'" + pass + "','" + cpass + "')", con);
                 cmd.ExecuteNonQuery();
                 Response.Write("<script language='javascript'>window.alert('Registration Successful');window.location='login.aspx';</script>");
             }
