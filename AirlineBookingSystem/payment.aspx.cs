@@ -44,17 +44,17 @@ namespace AirlineBookingSystem
             //inserting into booking table
             MySqlConnection con = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("insert into flyair.booking(custid,fid,eseat,eprice,bseat,bprice,fseat,fprice,tamount,bdate)values(@a1,@a2,@a3,@a4,@a5,@a6,@a7,@a8,@a9,@a10)", con);
-            cmd.Parameters.AddWithValue("@a1", custid);
-            cmd.Parameters.AddWithValue("@a2", fid);
-            cmd.Parameters.AddWithValue("@a3", ecount);
-            cmd.Parameters.AddWithValue("@a4", eprice);
-            cmd.Parameters.AddWithValue("@a5", bcount);
-            cmd.Parameters.AddWithValue("@a6", bprice);
-            cmd.Parameters.AddWithValue("@a7", fcount);
-            cmd.Parameters.AddWithValue("@a8", fprice);
-            cmd.Parameters.AddWithValue("@a9", tamount);
-            cmd.Parameters.AddWithValue("@a10", bdate);
+            MySqlCommand cmd = new MySqlCommand("insert into flyair.booking(custid,fid,eseat,eprice,bseat,bprice,fseat,fprice,tamount,bdate)values('" + custid + "','" + fid + "','" + ecount + "','" + eprice + "','" + bcount + "','" + bprice + "','" + fcount + "'," + fprice + ",'" + tamount + "','" + bdate + "')", con);
+            //cmd.Parameters.AddWithValue("@a1", custid);
+            //cmd.Parameters.AddWithValue("@a2", fid);
+            //cmd.Parameters.AddWithValue("@a3", ecount);
+            //cmd.Parameters.AddWithValue("@a4", eprice);
+            //cmd.Parameters.AddWithValue("@a5", bcount);
+            //cmd.Parameters.AddWithValue("@a6", bprice);
+            //cmd.Parameters.AddWithValue("@a7", fcount);
+            //cmd.Parameters.AddWithValue("@a8", fprice);
+            //cmd.Parameters.AddWithValue("@a9", tamount);
+            //cmd.Parameters.AddWithValue("@a10", bdate);
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -76,14 +76,7 @@ namespace AirlineBookingSystem
                 int bid = int.Parse(mydr.GetString(0).ToString());
                 MySqlConnection con2 = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
                 con2.Open();
-                MySqlCommand cmd2 = new MySqlCommand("insert into flyair.payment(pname,dob,mobile,email,state,zip,bid) values(@a1,@a2,@a3,@a4,@a5,@a6,@a7)", con2);
-                cmd2.Parameters.AddWithValue("@a1", fname);
-                cmd2.Parameters.AddWithValue("@a2", dob);
-                cmd2.Parameters.AddWithValue("@a3", mob);
-                cmd2.Parameters.AddWithValue("@a4", email);
-                cmd2.Parameters.AddWithValue("@a5", state);
-                cmd2.Parameters.AddWithValue("@a6", zip);
-                cmd2.Parameters.AddWithValue("@a7", bid);
+                MySqlCommand cmd2 = new MySqlCommand("insert into flyair.payment(pname,dob,mobile,email,state,zip,bid) values('" + fname + "','" + dob + "','" + mob + "','" + email + "','" + state + "','" + zip + "','" + bid + "')", con2);
                 
                 cmd2.ExecuteNonQuery();
                 //Response.Redirect("payment.aspx");
@@ -102,12 +95,13 @@ namespace AirlineBookingSystem
 
             MySqlConnection con5 = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
             con5.Open();
-            MySqlCommand cmd5 = new MySqlCommand("select f.airlinename,f.source,f.destination,f.departuretime,f.arrivaltime,p.pname,c.custid from flight f,payment p, cust c where f.fid='"+fid+"'and p.bid='"+bookid+"'",con5);
+            MySqlCommand cmd5 = new MySqlCommand("select f.airlinename,f.source,f.destination,f.departuretime,f.arrivaltime,p.pname,c.custid,f.date from flight f,payment p, cust c where f.fid='"+fid+"'and p.bid='"+bookid+"'",con5);
             MySqlDataReader mydr2 = cmd5.ExecuteReader();
             mydr2.Read();
             string flightname = mydr2.GetString(0);
             string from = mydr2.GetString(1);
             string to = mydr2.GetString(2);
+            string departuredate = mydr2.GetString(7);
             string departuretime = mydr2.GetString(3);
             string arrivaltime = mydr2.GetString(4);
             string pass_name = mydr2.GetString(5);
@@ -115,8 +109,8 @@ namespace AirlineBookingSystem
             //email
             string textBody = "Booking No. " + bookid + "<br>Booking Date: " + bookingdate + "<br>Passenger Name: " + pass_name +
                         "<br><table border=" + 1 + " cellpadding=" + 2 + " cellspacing=" + 2 + " width = " + 800 + ">" +
-                        "<th bgcolor='#4da6ff'>flight</th><th bgcolor='#4da6ff'>Economic</th><th bgcolor='#4da6ff'>Business</th><th bgcolor='#4da6ff'>First</th><th bgcolor='#4da6ff'>Total fare</th><th bgcolor='#4da6ff'>Departs</th><th bgcolor='#4da6ff'>Arrives</th>" +
-                        "<tr><td>" + flightname + "</td><td>" + economic + "</td><td>" + business + "</td><td>" + first + "</td><td>₹" + tfare + "</td><td>" + from + "<br>" + departuretime + "</td><td>" + to + "<br>" + arrivaltime + "</td></tr>";
+                        "<th bgcolor='#4da6ff'>flight</th><th bgcolor='#4da6ff'>Economic</th><th bgcolor='#4da6ff'>Business</th><th bgcolor='#4da6ff'>First</th><th bgcolor='#4da6ff'>Total fare</th><th bgcolor='#4da6ff'>Date of Departure</th><th bgcolor='#4da6ff'>Departs</th><th bgcolor='#4da6ff'>Arrives</th>" +
+                        "<tr><td>" + flightname + "</td><td>" + economic + "</td><td>" + business + "</td><td>" + first + "</td><td>₹" + tfare + "</td><td>" + departuredate + "</td><td>" + from + "<br>" + departuretime + "</td><td>" + to + "<br>" + arrivaltime + "</td></tr>";
 
             textBody += "</table>";
             SmtpClient smtp = new SmtpClient();
@@ -155,7 +149,7 @@ namespace AirlineBookingSystem
             MySqlDataReader mydr = cmdd.ExecuteReader();
             while (mydr.Read())
             {
-                htmstr = "<h4>" + ecount + " </h4><h4>" + eprice + " </h4><h4>" + bcount + " </h4><h4>" + bprice + " </h4><h4>" + fcount + " </h4><h4>" + fprice + " </h4><h4>" + tamount + " </h4>";
+                htmstr = "<h4>" + ecount + " </h4><h4>" + eprice + " </h4><h4>" + bcount + " </h4><h4>" + bprice + " </h4><h4>" + fcount + " </h4><h4>" + fprice + " </h4><h4> ₹" + tamount + " </h4>";
             }
             return htmstr;
         }
