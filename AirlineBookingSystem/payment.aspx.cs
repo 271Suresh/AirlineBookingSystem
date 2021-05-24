@@ -45,16 +45,6 @@ namespace AirlineBookingSystem
             MySqlConnection con = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;");
             con.Open();
             MySqlCommand cmd = new MySqlCommand("insert into flyair.booking(custid,fid,eseat,eprice,bseat,bprice,fseat,fprice,tamount,bdate)values('" + custid + "','" + fid + "','" + ecount + "','" + eprice + "','" + bcount + "','" + bprice + "','" + fcount + "'," + fprice + ",'" + tamount + "','" + bdate + "')", con);
-            //cmd.Parameters.AddWithValue("@a1", custid);
-            //cmd.Parameters.AddWithValue("@a2", fid);
-            //cmd.Parameters.AddWithValue("@a3", ecount);
-            //cmd.Parameters.AddWithValue("@a4", eprice);
-            //cmd.Parameters.AddWithValue("@a5", bcount);
-            //cmd.Parameters.AddWithValue("@a6", bprice);
-            //cmd.Parameters.AddWithValue("@a7", fcount);
-            //cmd.Parameters.AddWithValue("@a8", fprice);
-            //cmd.Parameters.AddWithValue("@a9", tamount);
-            //cmd.Parameters.AddWithValue("@a10", bdate);
             cmd.ExecuteNonQuery();
             con.Close();
 

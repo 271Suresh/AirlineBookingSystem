@@ -186,21 +186,6 @@
                         </div>
                     </div>
                 </div>
-                <%--<div class="outer-block">
-                    <h1 style="color: white;text-align:center">update details</h1>
-                    <div class="middle-block">
-                        <form action="register.aspx" method="post">
-                            <div class="container" style="text-align:center">
-                                <button type="submit" class="button">update</button>
-                                <button type="submit" class="button" style="background-color: #0277bd">
-                                cancel
-                                </button>
-                                <a href="resetpassword.aspx" class="button" style="background-color: #0277bd">change password</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>--%>
         </div>
     </body>
 </html>

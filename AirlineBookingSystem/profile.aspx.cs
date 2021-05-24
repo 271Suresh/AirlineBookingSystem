@@ -42,6 +42,7 @@ namespace AirlineBookingSystem
         {
             Session.Abandon();
             Session.Clear();
+            Response.Redirect("home.aspx");
         }
     }
 }

@@ -218,28 +218,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <%--<div id="page2" style="display: none">
-                        <div id="page1">
-                            <div class="cards">
-                                <div class="date">
-                                    <h1>Travel Date</h1>
-                                    <h1>21</h1>
-                                    March 2021
-                                    <p>sunday</p>
-                                    
-                                </div>
-                                <div class="place">
-                                    <h1>Pune-Goa</h1>
-                                    <p>Emirates</p>
-                                </div>
-                                <div class="details">
-                                    <h1>Completed</h1>
-                                    <p>trip1202</p>   
-                                </div>
-                            </div>
-                        </div>
-                    </div>--%>
                 </div>
             </div>
         </div>
