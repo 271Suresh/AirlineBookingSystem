@@ -30,9 +30,9 @@ namespace AirlineBookingSystem
                 Application["eseat"] = row.Cells[13].Text;
                 Application["eprice"] = row.Cells[14].Text;
                 Application["bseat"] = row.Cells[11].Text;
-                Application["bprice"] = row.Cells[11].Text;
+                Application["bprice"] = row.Cells[12].Text;
                 Application["fseat"] = row.Cells[9].Text;
-                Application["fprice"] = row.Cells[9].Text;
+                Application["fprice"] = row.Cells[10].Text;
                 Response.Redirect("bookconfirm.aspx");
             }
         }
@@ -56,17 +56,15 @@ namespace AirlineBookingSystem
             conn.Open();
             string query = "Select * from flight where source='" + from + "' and destination='" + to + "' and date='" + departuredate + "'";
             MySqlCommand cmdd = new MySqlCommand(query, conn);
-            MySqlDataAdapter sda = new MySqlDataAdapter(cmdd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            if (ds.Tables[0].Rows.Count == 0)
+            MySqlDataReader sda = cmdd.ExecuteReader();
+            if (sda.HasRows == true)
             {
-                Response.Write("<script>alert('No Flight Available on this Day')</script>");
+                GridView1.DataSource = sda;
+                GridView1.DataBind();
             }
             else
             {
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
+                Response.Write("<script>alert('No Flight Available on this Day')</script>");
             }
         }
     }

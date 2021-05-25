@@ -35,53 +35,23 @@ namespace AirlineBookingSystem
             int eseat_avail = int.Parse(Application["eseat"].ToString());
             int eprice = int.Parse(Application["eprice"].ToString());
             htmstr = "<td>" + eseat_avail + "</td><td>" + eprice + "</td>";
-            //MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            //conn.Open();
-            //MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid="+fid, conn);
-            //MySqlDataReader mydr = cmdd.ExecuteReader();
-            ////int eseat = 0;
-            //while (mydr.Read())
-            //{
-            //    string eprice = mydr.GetString(13);
-            //    htmstr = "<td>" + eseat_avail + "</td><td>" + eprice + "</td>";
-            //}
             return htmstr;
         }
 
         public string businessdata()
         {
             string htmstr = "";
-            //int fid = int.Parse(Application["flightid"].ToString());
             int bseat_avail = int.Parse(Application["bseat"].ToString());
             int bprice = int.Parse(Application["bprice"].ToString());
             htmstr = "<td>" + bseat_avail + "</td><td>" + bprice + "</td>";
-            //MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            //conn.Open();
-            //MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid=" + fid, conn);
-            //MySqlDataReader mydr = cmdd.ExecuteReader();
-            //while (mydr.Read())
-            //{
-            //    string bprice = mydr.GetString(11);
-            //    htmstr = "<td>" + bseat_avail + "</td><td>" + bprice + " </ td > ";
-            //}
             return htmstr;
         }
         public string firstdata()
         {
             string htmstr = "";
-            //int fid = int.Parse(Application["flightid"].ToString());
             int fseat_avail = int.Parse(Application["fseat"].ToString());
             int fprice = int.Parse(Application["fprice"].ToString());
             htmstr = "<td>" + fseat_avail + "</td><td>" + fprice + "</td>";
-            //MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;database=flyair;username=root;password=;");
-            //conn.Open();
-            //MySqlCommand cmdd = new MySqlCommand("Select * from flight where fid=" + fid, conn);
-            //MySqlDataReader mydr = cmdd.ExecuteReader();
-            //while (mydr.Read())
-            //{
-            //    string fprice = mydr.GetString(9);
-            //    htmstr = "<td>" + fseat_avail + "</td><td>" + fprice + " </ td > ";
-            //}
             return htmstr;
         }
 

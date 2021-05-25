@@ -184,17 +184,6 @@
             </div>
 
             <div class="outer-block">
-                <%--<div class="navigator">
-                    <div>
-                        <a href="#" onclick="return show('page2','page1');">
-                            Completed Trips
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" onclick="return show('page1','page2');">Upcoming trips
-                        </a>
-                    </div>
-                </div>--%>
                 <h1 style="color: white;text-align:center">Your Bookings</h1>
                 <div class="middle-block">
                     <div  class="page1" id="page1">
